@@ -41,12 +41,6 @@ public class ApplicationSessionInterceptor implements HandlerInterceptor {
 			return false;
 		}else{
 			String controller = request.getRequestURI().split("/")[2];
-			
-			//Metodo para enviar un flag si hay un cierre del mes
-			session.setAttribute("cierreMes", null);
-			if(controller.equals("ingresarMercaderia") || controller.equals("distribucionMercaderia") || controller.equals("registrarConsumo")){
-				session.setAttribute("cierreMes", (String)session.getAttribute("flagCierreMes"));
-			}
 			//--------------------------------------------------
 			
 			List<OpcionApp> opciones = usuarioSession.getLst_opciones();

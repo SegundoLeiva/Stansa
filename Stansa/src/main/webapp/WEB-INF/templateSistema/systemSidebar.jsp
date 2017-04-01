@@ -2,7 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 
 <a href="#" class="brand"> <small> <i class="ace-icon icon-beaker"></i>
-						Sistema Insumos Químicos
+						Stansa
 				</small>
 				</a>
 

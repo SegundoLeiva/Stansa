@@ -104,48 +104,7 @@
 			value="/WEB-INF/views/mercaderia/nuevaMercaderia.jsp" />		
 	</definition>
 	
-	<!-- ################################ REGISTRO DE CONSUMOS ############################## -->
-	<definition name="verConsumos" extends="templateSistema">
-		<put-attribute name="js2" value="/WEB-INF/views/consumo/verConsumosJs.jsp" />
-		<put-attribute name="contenido"
-			value="/WEB-INF/views/consumo/verConsumos.jsp" />		
-	</definition>
-	<definition name="nuevoConsumo" extends="templateSistema">
-		<put-attribute name="js2" value="/WEB-INF/views/consumo/nuevoConsumoJs.jsp" />
-		<put-attribute name="contenido"
-			value="/WEB-INF/views/consumo/nuevoConsumo.jsp" />		
-	</definition>
-	
-	<!-- ################################ Distribucion Mercaderia ############################## -->
-	<definition name="verDistribucionMercaderia" extends="templateSistema">
-		<put-attribute name="js2" value="/WEB-INF/views/distribucionMercaderia/verDistribucionMercaderiaJs.jsp" />
-		<put-attribute name="contenido"
-			value="/WEB-INF/views/distribucionMercaderia/verDistribucionMercaderia.jsp" />		
-	</definition>
-	<definition name="nuevaDistribucionMercaderia" extends="templateSistema">
-		<put-attribute name="js2" value="/WEB-INF/views/distribucionMercaderia/nuevaDistribucionMercaderiaJs.jsp" />
-		<put-attribute name="contenido"
-			value="/WEB-INF/views/distribucionMercaderia/nuevaDistribucionMercaderia.jsp" />		
-	</definition>
-	
-	<!-- ################################ REPORTE ############################## -->
-	<definition name="verReporte" extends="templateSistema">
-	<put-attribute name="js2" value="/WEB-INF/views/reporte/reporteJs.jsp" />
-		<put-attribute name="contenido"
-			value="/WEB-INF/views/reporte/verReporte.jsp" />		
-	</definition>
-	
-	<!-- ################################ CERRAR PERIODO ############################## -->
-	<definition name="verCerrarPeriodo" extends="templateSistema">
-		<put-attribute name="js2" value="/WEB-INF/views/cerrarPeriodo/cerrarPeriodoJs.jsp" />
-		<put-attribute name="contenido"
-			value="/WEB-INF/views/cerrarPeriodo/verCerrarPeriodo.jsp" />		
-	</definition>
-	<definition name="consultarCerrarPeriodo" extends="templateSistema">
-		<put-attribute name="js2" value="/WEB-INF/views/cerrarPeriodo/cerrarPeriodoJs.jsp" />		
-		<put-attribute name="contenido"
-			value="/WEB-INF/views/cerrarPeriodo/consultarCerrarPeriodo.jsp" />		
-	</definition>
+
 
 </tiles-definitions>
 

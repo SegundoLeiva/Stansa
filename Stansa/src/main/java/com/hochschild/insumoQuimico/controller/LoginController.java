@@ -94,7 +94,6 @@ public class LoginController {
                                 cargaValoresOrganizacionales(idAplicacion,usuario,idUnidadMinera);                                                             
                                 session.setAttribute("puestoPorUsuario", puestoPorUsuario);                                
                                 session.setAttribute("session_usuario", usuario);
-//                                obtenerFlagCierreMes(session, usuario);
             					
                                 return new ModelAndView("redirect:/home/bienvenida.htm");
                             }else{
@@ -202,18 +201,5 @@ public class LoginController {
     	req.setAttribute("expiro", "true");
     	return "templatelogin";
     }
-	
-	public void obtenerFlagCierreMes(HttpSession session, Usuario usuario){
-		   CalendarioGestion calendario = calendarioGestionService.obtieneCalendarioGestionPorIdUnidadMinera(usuario.getIdUnidadMineraPorDefecto());
-           Date date = new Date();
-           
-           Calendar cal = Calendar.getInstance(); 
-           cal.setTime(calendario.getFechaFin()); 
-           cal.add(Calendar.DATE, calendario.getDiasTolerancia());
-           
-			if(!(date.after(calendario.getFechaInicio()) && date.before(cal.getTime()) && calendario.getAperturado().equals("S"))){
-				session.setAttribute("flagCierreMes", "C");
-			}
-	}
     
 }
