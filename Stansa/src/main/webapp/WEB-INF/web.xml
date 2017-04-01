@@ -24,7 +24,7 @@
 	<display-name>Application</display-name>
 
 	<servlet>
-		<servlet-name>InsumoQuimico</servlet-name>
+		<servlet-name>Stansa</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
@@ -34,7 +34,7 @@
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>InsumoQuimico</servlet-name>
+		<servlet-name>Stansa</servlet-name>
 		<url-pattern>*.htm</url-pattern>
 	</servlet-mapping>
 	
