@@ -8,10 +8,8 @@ public class MercaderiaConsulta {
 	
 	@Id
 	private String idMercaderia;
-	private String idUnidadMinera;
 	private String transporte;
     private String guiaRemision;
-    private String idUnidadMineraAlmacen;
     private String almacen;
     private String fechaCreacion;
 	private String idUsuarioCreacion;
@@ -64,17 +62,5 @@ public class MercaderiaConsulta {
 	}
 	public void setIdUsuarioCreacion(String idUsuarioCreacion) {
 		this.idUsuarioCreacion = idUsuarioCreacion;
-	}
-	public String getIdUnidadMinera() {
-		return idUnidadMinera;
-	}
-	public void setIdUnidadMinera(String idUnidadMinera) {
-		this.idUnidadMinera = idUnidadMinera;
-	}
-	public String getIdUnidadMineraAlmacen() {
-		return idUnidadMineraAlmacen;
-	}
-	public void setIdUnidadMineraAlmacen(String idUnidadMineraAlmacen) {
-		this.idUnidadMineraAlmacen = idUnidadMineraAlmacen;
 	}
 }

@@ -10,8 +10,6 @@ public class MercaderiaParametrosEntrada implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private String idUnidadMinera;
-	private String idUnidadMineraAlmacen;
 	private String comprobanteVenta;
 	private String rucProveedor;
 	private String descripcionProveedor;
@@ -35,18 +33,6 @@ public class MercaderiaParametrosEntrada implements Serializable{
 	}
 	public void setIndex(String index) {
 		this.index = index;
-	}
-	public String getIdUnidadMinera() {
-		return idUnidadMinera;
-	}
-	public void setIdUnidadMinera(String idUnidadMinera) {
-		this.idUnidadMinera = idUnidadMinera;
-	}
-	public String getIdUnidadMineraAlmacen() {
-		return idUnidadMineraAlmacen;
-	}
-	public void setIdUnidadMineraAlmacen(String idUnidadMineraAlmacen) {
-		this.idUnidadMineraAlmacen = idUnidadMineraAlmacen;
 	}
 	public String getComprobanteVenta() {
 		return comprobanteVenta;

@@ -1,6 +1,5 @@
 package com.hochschild.insumoQuimico.session;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,21 +7,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.hochschild.insumoQuimico.dao.UnidadMineraInsumoDAO;
-import com.hochschild.insumoQuimico.domain.CalendarioGestion;
 import com.hochschild.insumoQuimico.domain.OpcionApp;
 import com.hochschild.insumoQuimico.domain.Usuario;
-import com.hochschild.insumoQuimico.service.CalendarioGestionService;
-import com.hochschild.insumoQuimico.util.FechasUtil;
 
 public class ApplicationSessionInterceptor implements HandlerInterceptor {
 
-	@Autowired
-	public CalendarioGestionService calendarioGestionService;
 	 
 	public void sessionCreated(HttpSessionEvent event) {
 	   System.out.println("Session Created");

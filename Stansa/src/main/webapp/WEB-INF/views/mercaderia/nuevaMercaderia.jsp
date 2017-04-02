@@ -13,16 +13,6 @@
 					<fieldset class="agruparFielset">
 						<div class="span6">
 							<div class="control-group">
-								<label class="control-label" for="idUnidadMinera">Unidad Minera</label>
-								<div class="controls">
-									<select name="idUnidadMinera" id="idUnidadMinera">
-										<c:forEach var="item" items="${listaUnidadesMineras}">
-											<option value="${item.valorOrganizacional}" ${item.valorOrganizacional == mercaderia.unidadMinera.idUnidadMinera ? 'selected' : ' '}>${item.descripcion}</option>
-										</c:forEach>
-									</select>
-								</div>
-							</div>
-							<div class="control-group">
 								<label class="control-label" for="guiaRemision">Guía Remisión</label>
 								<div class="controls">
 									<input type="text" class="form-control" name="guiaRemision" id="guiaRemision" value="${mercaderia.guiaRemision}" required="required" data-msg-required="El campo Guía Remisión es obligatorio.">

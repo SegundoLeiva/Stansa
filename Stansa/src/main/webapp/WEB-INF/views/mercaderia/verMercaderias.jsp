@@ -9,16 +9,6 @@
 					<div class="row-fluid">
 						<div class="span4">
 							<div class="control-group">
-								<label class="control-label" for="idUnidadMinera">Unidad Minera</label>
-								<div class="controls">
-									<select name="idUnidadMinera" id="idUnidadMinera">
-										<c:forEach var="item" items="${listaUnidadesMineras}">
-											<option value="${item.valorOrganizacional}" ${item.valorOrganizacional == beanConsulta.idUnidadMinera ? 'selected' : ' '}>${item.descripcion}</option>
-										</c:forEach>
-									</select>
-								</div>
-							</div>
-							<div class="control-group">
 								<label class="control-label" for="fechaInicio">Fecha Inicio</label>
 								<div class="controls">
 								<span class="input-icon input-icon-right"> 

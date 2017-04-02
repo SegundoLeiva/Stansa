@@ -1,9 +1,6 @@
 package com.hochschild.insumoQuimico.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -19,18 +16,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hochschild.insumoQuimico.ad.LdapSeguridad;
-import com.hochschild.insumoQuimico.domain.CalendarioGestion;
-import com.hochschild.insumoQuimico.domain.DivisionesCIA;
 import com.hochschild.insumoQuimico.domain.OpcionApp;
 import com.hochschild.insumoQuimico.domain.Usuario;
-import com.hochschild.insumoQuimico.domain.ValorOrganizacionalSesion;
-import com.hochschild.insumoQuimico.service.CalendarioGestionService;
-import com.hochschild.insumoQuimico.service.DivisionesCIAService;
 import com.hochschild.insumoQuimico.service.OpcionesAppService;
 import com.hochschild.insumoQuimico.util.Constantes;
 import com.hochschild.sca.domain.PuestoPorUsuario;
 import com.hochschild.sca.service.PuestoPorUsuarioService;
-import com.hochschild.sca.service.ValorOrganizacionalService;
 
 @Controller
 public class LoginController {
@@ -42,19 +33,12 @@ public class LoginController {
     private OpcionesAppService opcionesAppService;
     @Autowired
     private PuestoPorUsuarioService puestoPorUsuarioService;
-    @Autowired
-    private ValorOrganizacionalService valorOrganizacionalService;
-    @Autowired
-    private DivisionesCIAService divisionesCIAService; 
-    @Autowired
-	public CalendarioGestionService calendarioGestionService;
-    
+   
     
     @RequestMapping(value="/login.htm", method=RequestMethod.POST)
     public ModelAndView login(HttpServletRequest req) {  
     	ModelAndView model = new ModelAndView();
     	String idUsuario = req.getParameter("idUsuario");
-        String clave = req.getParameter("clave");
     	String mensaje = "";
         if(idUsuario != null){
             try{
@@ -65,13 +49,11 @@ public class LoginController {
                 ResourceBundle bundle = ResourceBundle.getBundle("aplicacion");
                 String idAplicacion = bundle.getString("aplicacion.idAplicacion");
                 String seguridadAutentica = bundle.getString("aplicacion.usarAutenticacionLDAP");
-                String idUnidadMinera = bundle.getString("idUnidadMinera.aplicacion.central");
 
-                req.setAttribute("idUnidadMinera", idUnidadMinera);
                 req.setAttribute("versionBD", "1.0");
 
                 if(seguridadAutentica.equals("1")){
-                    resultado = ldapSeguridad.autenticaUsuario(idUsuario, clave, idUnidadMinera) ? 1 : 2;
+
                 }else{
                     resultado = 1;
                 }
@@ -91,7 +73,6 @@ public class LoginController {
                                 usuario.setDivisionUsuario(puestoPorUsuario.getDivisionUsuario()!=null?puestoPorUsuario.getDivisionUsuario():"");
                                 usuario.setEsUsuarioLogistica(esUsuarioLogistica(listaOpcionesApp));
                                 usuario.setLst_opciones(listaOpcionesApp);
-                                cargaValoresOrganizacionales(idAplicacion,usuario,idUnidadMinera);                                                             
                                 session.setAttribute("puestoPorUsuario", puestoPorUsuario);                                
                                 session.setAttribute("session_usuario", usuario);
             					
@@ -146,32 +127,6 @@ public class LoginController {
         }
         return false;
     }
-    
-    private void cargaValoresOrganizacionales(String idAplicacion, Usuario usuario, String idUnidadMinera){
-        List<ValorOrganizacionalSesion> listaValoresOrganizaciones = new ArrayList<ValorOrganizacionalSesion>();
-        List<ValorOrganizacionalSesion> listaUnidadesMineras = valorOrganizacionalService.getValores(idAplicacion, usuario.getIdUsuario(), "WERKS");
-        if (listaUnidadesMineras != null && listaUnidadesMineras.size() > 0) {            
-            for(ValorOrganizacionalSesion vos : listaUnidadesMineras){
-//                if(vos.getValorOrganizacional().equals(idUnidadMinera)){
-                    listaValoresOrganizaciones.add(vos);
-//                }
-            }            
-        }else{
-            DivisionesCIA divisionesCIA =  divisionesCIAService.obtenerDivisionesCIAPorId(usuario.getSociedadUsuario(), usuario.getDivisionUsuario());
-            if(divisionesCIA != null){
-                ValorOrganizacionalSesion valorOrganizacionalSesion = new ValorOrganizacionalSesion();
-                valorOrganizacionalSesion.setValorOrganizacional(divisionesCIA.getIdUnidadMinera());
-                valorOrganizacionalSesion.setDescripcion(divisionesCIA.getDivision());
-                valorOrganizacionalSesion.setTipoValorOrganizacional("WERKS");
-                listaValoresOrganizaciones.add(valorOrganizacionalSesion);
-            }
-        }        
-        usuario.setLst_valoresOrganizacionales(listaValoresOrganizaciones);
-        List<ValorOrganizacionalSesion> listaUnidadesMinerasGetValoresDescripcion = valorOrganizacionalService.getValoresDescripcion(usuario.getLst_valoresOrganizacionales());
-        usuario.setListaUnidadesMineras(listaUnidadesMinerasGetValoresDescripcion);
-        usuario.setIdUnidadMineraPorDefecto(valorOrganizacionalService.getIdUnidadMineraPorDefecto(listaUnidadesMinerasGetValoresDescripcion));
-    }
-	
 	
 	@RequestMapping(value = "/accessDenied.htm")
 	public ModelAndView accessDenied(HttpServletRequest request,

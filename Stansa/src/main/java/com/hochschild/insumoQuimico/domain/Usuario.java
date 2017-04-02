@@ -27,8 +27,6 @@ public class Usuario {
     private List<OpcionPantallaSistema> lst_opcionesSIOAutorizadas = new ArrayList<OpcionPantallaSistema>();
 
     private Map<Integer, OpcionAccionesSCA> lstOpcionesAutorizadas = new HashMap<Integer, OpcionAccionesSCA>();
-    private List<ValorOrganizacionalSesion> lst_valoresOrganizacionales = new ArrayList<ValorOrganizacionalSesion>();
-    private List<ValorOrganizacionalSesion> listaUnidadesMineras;
     private String idUnidadMineraPorDefecto;
     public String getDivisionUsuario() {
         return divisionUsuario;
@@ -68,14 +66,6 @@ public class Usuario {
 
     public void setLst_opciones(List<OpcionApp> lst_opciones) {
         this.lst_opciones = lst_opciones;
-    }
-
-    public List<ValorOrganizacionalSesion> getLst_valoresOrganizacionales() {
-        return lst_valoresOrganizacionales;
-    }
-
-    public void setLst_valoresOrganizacionales(List<ValorOrganizacionalSesion> lst_valoresOrganizacionales) {
-        this.lst_valoresOrganizacionales = lst_valoresOrganizacionales;
     }
 
     public List<OpcionPantallaSistema> getLst_opcionesSIOAutorizadas() {
@@ -131,15 +121,6 @@ public class Usuario {
     public void setSociedadUsuario(String sociedadUsuario) {
         this.sociedadUsuario = sociedadUsuario;
     }
-
-	public List<ValorOrganizacionalSesion> getListaUnidadesMineras() {
-		return listaUnidadesMineras;
-	}
-
-	public void setListaUnidadesMineras(
-			List<ValorOrganizacionalSesion> listaUnidadesMineras) {
-		this.listaUnidadesMineras = listaUnidadesMineras;
-	}
 
 	public String getIdUnidadMineraPorDefecto() {
 		return idUnidadMineraPorDefecto;

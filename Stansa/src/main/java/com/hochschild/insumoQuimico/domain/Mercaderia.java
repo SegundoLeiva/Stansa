@@ -33,15 +33,6 @@ public class Mercaderia implements Serializable {
 
 	@Id
 	private String idMercaderia;
-
-    @ManyToOne
-    @JoinColumn(name="idUnidadMinera")
-    private UnidadMinera unidadMinera;
-    
-    @ManyToOne
-    @JoinColumn(name="idUnidadMineraAlmacen")
-    private UnidadMineraAlmacen unidadMineraAlmacen;
-
     private String transporte;
     private String guiaRemision;
     private String guiaInterna;
@@ -58,18 +49,6 @@ public class Mercaderia implements Serializable {
 	}
 	public void setIdMercaderia(String idMercaderia) {
 		this.idMercaderia = idMercaderia;
-	}
-	public UnidadMinera getUnidadMinera() {
-		return unidadMinera;
-	}
-	public void setUnidadMinera(UnidadMinera unidadMinera) {
-		this.unidadMinera = unidadMinera;
-	}
-	public UnidadMineraAlmacen getUnidadMineraAlmacen() {
-		return unidadMineraAlmacen;
-	}
-	public void setUnidadMineraAlmacen(UnidadMineraAlmacen unidadMineraAlmacen) {
-		this.unidadMineraAlmacen = unidadMineraAlmacen;
 	}
 	public String getTransporte() {
 		return transporte;
