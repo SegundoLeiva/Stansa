@@ -6,9 +6,7 @@ import com.hochschild.insumoQuimico.util.FechasUtil;
 public class MercaderiaConsultaModel {
 	
 	private String idMercaderia;
-	private String transporte;
     private String guiaRemision;
-    private String almacen;
     private String fechaCreacion;
 	private String idUsuarioCreacion;
 	private String rucProveedor;
@@ -32,23 +30,11 @@ public class MercaderiaConsultaModel {
 	public void setIdMercaderia(String idMercaderia) {
 		this.idMercaderia = idMercaderia;
 	}
-	public String getTransporte() {
-		return transporte;
-	}
-	public void setTransporte(String transporte) {
-		this.transporte = transporte;
-	}
 	public String getGuiaRemision() {
 		return guiaRemision;
 	}
 	public void setGuiaRemision(String guiaRemision) {
 		this.guiaRemision = guiaRemision;
-	}
-	public String getAlmacen() {
-		return almacen;
-	}
-	public void setAlmacen(String almacen) {
-		this.almacen = almacen;
 	}
 	public String getRucProveedor() {
 		return rucProveedor;

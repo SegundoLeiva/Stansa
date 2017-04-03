@@ -18,6 +18,7 @@ import com.hochschild.insumoQuimico.domain.MercaderiaDetalle;
 import com.hochschild.insumoQuimico.domain.MercaderiaParametrosEntrada;
 import com.hochschild.insumoQuimico.service.MercaderiaDetalleService;
 import com.hochschild.insumoQuimico.service.MercaderiaService;
+import com.hochschild.insumoQuimico.service.ProductoService;
 
 @Controller
 @RequestMapping(value = "/ingresarMercaderia")
@@ -26,7 +27,8 @@ public class IngresarMercaderiaMantenimientoController extends BaseMantenimiento
     private MercaderiaService mercaderiaService;
 	@Autowired
     private MercaderiaDetalleService mercaderiaDetalleService;	
-
+	@Autowired
+    private ProductoService productoService;	
 
 	@Override
 	public String getPaginaMantenimiento() {
@@ -37,6 +39,7 @@ public class IngresarMercaderiaMantenimientoController extends BaseMantenimiento
 	@Override
 	public Model setViewAttributes(Model model) {
 		// TODO Auto-generated method stub
+		model.addAttribute("listaProducto", this.productoService.listaProducto());
 		return model;
 	}
 	

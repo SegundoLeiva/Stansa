@@ -10,37 +10,22 @@
 				<div class="row-fluid">
 						<div class="span6">
 							<div class="control-group">
-								<label class="control-label" for="idUnidadMineraInsumoPresentacion">Insumo Presentación</label>
+								<label class="control-label" for="idProducto">Producto</label>
 								<div class="controls selectInsumo">
-									<select id="idUnidadMineraInsumoPresentacion" required
-										data-msg-required="El campo Insumo Presentación es obligatorio."></select>
+									<select id="idProducto" required
+										data-msg-required="El campo Producto es obligatorio."></select>
 								</div>
 							</div>
 						
 						</div>
 						<div class="span6">
 							<div class="control-group">
-								<label class="control-label" for="pesoNeto">Peso Neto (Kg)</label>
-								<div class="controls">
-									<input type="text" id="pesoNeto" readonly="readonly" class="inputInsumo factor">
-									<input type="hidden" id="unidadMedidaPresentacion">
-								</div>
-							</div>					
-						</div>		
-						
-						
-					</div>
-					<div class="row-fluid">
-						
-						<div class="span6">
-							<div class="control-group">
-								<label class="control-label" for="cantidad">Cantidad de Presentación</label>
+								<label class="control-label" for="cantidad">Cantidad</label>
 								<div class="controls">
 									<input type="text" id="cantidad" class="numeroDecimal inputInsumo" required data-msg-required="El campo Cantidad es obligatorio.">
 								</div>
 							</div>
-						</div>	
-													
+						</div>								
 					</div>
 
 	</div>

@@ -91,7 +91,7 @@
 							<th class="center" width="10%">Código</th>
 							<th class="center" width="40%">Descripcion</th>
 							<th class="center">Cantidad</th>
-							<th class="center">Unidad Medida</th>
+							<th class="center" width="10%">Nro Serie</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -101,3 +101,4 @@
 
 
 <%@ include file="/WEB-INF/views/mercaderia/nuevoInsumoDetalle.jsp"%>
+<%@ include file="/WEB-INF/views/mercaderia/numeroSerieDetalle.jsp"%>

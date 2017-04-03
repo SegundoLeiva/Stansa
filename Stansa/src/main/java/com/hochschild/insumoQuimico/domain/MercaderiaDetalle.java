@@ -49,10 +49,17 @@ public class MercaderiaDetalle implements Serializable {
 	private Mercaderia mercaderia;
 	
 	private Double cantidad;
+	
+	@ManyToOne
+	@JoinColumn(name = "idProducto")
+	private Producto producto;
+	   
 	private String idUsuarioCreacion;	
 	private Date fechaCreacion;	
 	private String idUsuarioModificacion;	
 	private Date fechaModificacion;
+	private String numeroSerie;
+	
 	public IdMercaderia getId() {
 		return id;
 	}
@@ -94,6 +101,18 @@ public class MercaderiaDetalle implements Serializable {
 	}
 	public void setMercaderia(Mercaderia mercaderia) {
 		this.mercaderia = mercaderia;
+	}
+	public Producto getProducto() {
+		return producto;
+	}
+	public void setProducto(Producto producto) {
+		this.producto = producto;
+	}
+	public String getNumeroSerie() {
+		return numeroSerie;
+	}
+	public void setNumeroSerie(String numeroSerie) {
+		this.numeroSerie = numeroSerie;
 	}
 	
 }

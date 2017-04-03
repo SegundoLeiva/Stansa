@@ -17,6 +17,7 @@ import com.hochschild.insumoQuimico.domain.MercaderiaConsultaModel;
 import com.hochschild.insumoQuimico.domain.MercaderiaDetalle;
 import com.hochschild.insumoQuimico.domain.MercaderiaDetalle.IdMercaderia;
 import com.hochschild.insumoQuimico.domain.MercaderiaParametrosEntrada;
+import com.hochschild.insumoQuimico.domain.Producto;
 import com.hochschild.insumoQuimico.util.Constantes;
 import com.hochschild.insumoQuimico.util.FechasUtil;
 
@@ -43,9 +44,7 @@ public class MercaderiaServiceImpl implements MercaderiaService {
 				insertarMercaderia(mercaderiaParametrosEntrada,idMercaderia);		
 			}else{
 				mercaderia = mercaderiaDAO.obtieneMercaderiaPorId(idMercaderia);
-				mercaderia.setTransporte(mercaderiaParametrosEntrada.getTransporte());
 				mercaderia.setGuiaRemision(mercaderiaParametrosEntrada.getGuiaRemision());
-				mercaderia.setGuiaInterna(mercaderiaParametrosEntrada.getGuiaInterna());
 				mercaderia.setRucProveedor(mercaderiaParametrosEntrada.getRucProveedor());
 				mercaderia.setDescripcionProveedor(mercaderiaParametrosEntrada.getDescripcionProveedor());
 				mercaderia.setIdUsuarioModificacion(idUsuarioCreacion);		
@@ -66,8 +65,11 @@ public class MercaderiaServiceImpl implements MercaderiaService {
 					id.setIdMercaderiaDetalle(new Long(index));
 					mercaderiaDetalle.setId(id);
 					
-					String idUnidadMineraInsumoPresentacion = jsonObj.getString("idUnidadMineraInsumoPresentacion");
-					
+					String idProducto = jsonObj.getString("idProducto");
+					Producto producto = new Producto();
+					producto.setIdProducto(new Long(idProducto));					
+					mercaderiaDetalle.setProducto(producto);
+					mercaderiaDetalle.setNumeroSerie(jsonObj.getString("numeroSerie"));
 					mercaderiaDetalle.setCantidad(jsonObj.getDouble("cantidad"));
 					mercaderiaDetalle.setIdUsuarioCreacion(idUsuarioCreacion);
 					mercaderiaDetalle.setFechaCreacion(new Date());
@@ -82,7 +84,11 @@ public class MercaderiaServiceImpl implements MercaderiaService {
 					mercaderiaDetalle = mercaderiaDetalleDAO.obtenerMercaderiaDetalle(mercaderiaParametrosEntrada.getIdMercaderia(), jsonObj.get("idDetalle").toString());					
 					mercaderiaDetalle.setCantidad(jsonObj.getDouble("cantidad"));
 					
-					String idUnidadMineraInsumoPresentacion = jsonObj.getString("idUnidadMineraInsumoPresentacion");					
+					String idProducto = jsonObj.getString("idProducto");
+					Producto producto = new Producto();
+					producto.setIdProducto(new Long(idProducto));					
+					mercaderiaDetalle.setProducto(producto);	
+					mercaderiaDetalle.setNumeroSerie(jsonObj.getString("numeroSerie"));
 					mercaderiaDetalle.setIdUsuarioModificacion(mercaderiaParametrosEntrada.getNombreUsuario());
 					mercaderiaDetalle.setFechaModificacion(new Date());		
 					
@@ -108,9 +114,7 @@ public class MercaderiaServiceImpl implements MercaderiaService {
 	public void insertarMercaderia(MercaderiaParametrosEntrada data,String idMercaderia){				
 		Mercaderia mercaderia = new Mercaderia();
 		mercaderia.setIdMercaderia(idMercaderia);	
-		mercaderia.setTransporte(data.getTransporte());
 		mercaderia.setGuiaRemision(data.getGuiaRemision());
-		mercaderia.setGuiaInterna(data.getGuiaInterna());
 		mercaderia.setRucProveedor(data.getRucProveedor());
 		mercaderia.setDescripcionProveedor(data.getDescripcionProveedor());
 		mercaderia.setIdUsuarioCreacion(data.getNombreUsuario());	

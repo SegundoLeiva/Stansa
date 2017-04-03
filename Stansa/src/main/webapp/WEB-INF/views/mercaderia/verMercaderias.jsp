@@ -7,7 +7,14 @@
 				<div class="span12">
 
 					<div class="row-fluid">
+						
 						<div class="span4">
+							<div class="control-group">
+								<label class="control-label" for="guiaRemision">Guía Remisión</label>
+								<div class="controls">
+									<input type="text" class="form-control" name="guiaRemision" id="guiaRemision" value="${beanConsulta.guiaRemision}" placeholder="Guía Remisión...">
+								</div>
+							</div>
 							<div class="control-group">
 								<label class="control-label" for="fechaInicio">Fecha Inicio</label>
 								<div class="controls">
@@ -17,12 +24,13 @@
 								</div>
 							</div>
 							
+							
 						</div>
 						<div class="span4">
 							<div class="control-group">
-								<label class="control-label" for="guiaRemision">Guía Remisión</label>
-								<div class="controls">
-									<input type="text" class="form-control" name="guiaRemision" id="guiaRemision" value="${beanConsulta.guiaRemision}" placeholder="Guía Remisión...">
+								<label class="control-label" for="proveedor">Ruc Proveedor</label>
+								<div class="controls">									
+									<input type="text" class="form-control numeroEntero" name="rucProveedor" id="rucProveedor" maxlength="11" value="${beanConsulta.rucProveedor}" placeholder="Proveedor...">
 								</div>
 							</div>
 							<div class="control-group">
@@ -33,17 +41,8 @@
 									</span>
 								</div>
 							</div>
-							
 						</div>
-						<div class="span4">
-							<div class="control-group">
-								<label class="control-label" for="proveedor">Ruc Proveedor</label>
-								<div class="controls">									
-									<input type="text" class="form-control numeroEntero" name="rucProveedor" id="rucProveedor" maxlength="11" value="${beanConsulta.rucProveedor}" placeholder="Proveedor...">
-								</div>
-							</div>
 							
-						</div>
 					</div>
 				</div>
 			</div>

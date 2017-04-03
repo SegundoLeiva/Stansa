@@ -5,8 +5,6 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.NamedNativeQueries;
@@ -15,7 +13,7 @@ import org.hibernate.annotations.NamedNativeQuery;
 @NamedNativeQueries({
 @NamedNativeQuery(name = "listaMercaderia",
 callable = true,
-query = "{call dbo.stpr_ListaMercaderia(:idUnidadMinera,:idMercaderia,:idUnidadMineraAlmacen,:rucProveedor,:guiaRemision,:fechaInicio,:fechaFin,:idUsuarioCreacion)}",
+query = "{call dbo.stpr_ListaMercaderia(:idMercaderia,:rucProveedor,:guiaRemision,:fechaInicio,:fechaFin,:idUsuarioCreacion)}",
 readOnly = true,
 cacheable = false,
 resultClass = MercaderiaConsulta.class),
@@ -33,9 +31,7 @@ public class Mercaderia implements Serializable {
 
 	@Id
 	private String idMercaderia;
-    private String transporte;
     private String guiaRemision;
-    private String guiaInterna;
     private String rucProveedor;
     private String descripcionProveedor;
     private Date fechaMercaderia;
@@ -50,23 +46,11 @@ public class Mercaderia implements Serializable {
 	public void setIdMercaderia(String idMercaderia) {
 		this.idMercaderia = idMercaderia;
 	}
-	public String getTransporte() {
-		return transporte;
-	}
-	public void setTransporte(String transporte) {
-		this.transporte = transporte;
-	}
 	public String getGuiaRemision() {
 		return guiaRemision;
 	}
 	public void setGuiaRemision(String guiaRemision) {
 		this.guiaRemision = guiaRemision;
-	}
-	public String getGuiaInterna() {
-		return guiaInterna;
-	}
-	public void setGuiaInterna(String guiaInterna) {
-		this.guiaInterna = guiaInterna;
 	}
 	public String getIdUsuarioCreacion() {
 		return idUsuarioCreacion;
@@ -109,5 +93,5 @@ public class Mercaderia implements Serializable {
 	}
 	public void setFechaMercaderia(Date fechaMercaderia) {
 		this.fechaMercaderia = fechaMercaderia;
-	}	
+	}
 }

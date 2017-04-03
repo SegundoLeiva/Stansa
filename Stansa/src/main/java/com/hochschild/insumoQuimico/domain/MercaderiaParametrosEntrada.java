@@ -10,11 +10,8 @@ public class MercaderiaParametrosEntrada implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private String comprobanteVenta;
 	private String rucProveedor;
 	private String descripcionProveedor;
-	private String transporte;
-	private String guiaInterna;
 	private String idMercaderia;
 	private String guiaRemision;
 	private JSONArray mercaderiaJSONArray;
@@ -34,12 +31,6 @@ public class MercaderiaParametrosEntrada implements Serializable{
 	public void setIndex(String index) {
 		this.index = index;
 	}
-	public String getComprobanteVenta() {
-		return comprobanteVenta;
-	}
-	public void setComprobanteVenta(String comprobanteVenta) {
-		this.comprobanteVenta = comprobanteVenta;
-	}
 	public String getRucProveedor() {
 		return rucProveedor;
 	}
@@ -51,18 +42,6 @@ public class MercaderiaParametrosEntrada implements Serializable{
 	}
 	public void setDescripcionProveedor(String descripcionProveedor) {
 		this.descripcionProveedor = descripcionProveedor;
-	}
-	public String getTransporte() {
-		return transporte;
-	}
-	public void setTransporte(String transporte) {
-		this.transporte = transporte;
-	}
-	public String getGuiaInterna() {
-		return guiaInterna;
-	}
-	public void setGuiaInterna(String guiaInterna) {
-		this.guiaInterna = guiaInterna;
 	}
 	public String getIdMercaderia() {
 		return idMercaderia;
