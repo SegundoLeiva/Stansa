@@ -29,18 +29,19 @@
 	<mvc:interceptors>	
 		<mvc:interceptor>
 			<mvc:mapping  path="/ingresarMercaderia/*"/> 
+			<mvc:mapping  path="/registrarConsumo/*"/>
 			<mvc:mapping  path="/home/*"/> 
 			<mvc:exclude-mapping path="/login.htm" />
-			<bean class="com.hochschild.insumoQuimico.session.ApplicationSessionInterceptor" />
+			<bean class="com.stansa.session.ApplicationSessionInterceptor" />
 		</mvc:interceptor>      
 	</mvc:interceptors> 
 	
 	
-    <bean id="dataSourceInsumoQuimico" class="org.apache.commons.dbcp.BasicDataSource">
+    <bean id="dataSourceStansa" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="${jdbc.driverClassName}"/>
-        <property name="url" value="${jdbc.insumoQuimico.url}"/>
-        <property name="username" value="${jdbc.insumoQuimico.username}"/>
-        <property name="password" value="${jdbc.insumoQuimico.password}"/>
+        <property name="url" value="${jdbc.stansa.url}"/>
+        <property name="username" value="${jdbc.stansa.username}"/>
+        <property name="password" value="${jdbc.stansa.password}"/>
     </bean>
     <bean id="dataSourceSCA" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="${jdbc.driverClassName}"/>
@@ -49,12 +50,12 @@
         <property name="password" value="${jdbc.sca.password}"/>
     </bean>
     
-     <bean id="sessionFactoryInsumoQuimico" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
-        <property name="dataSource" ref="dataSourceInsumoQuimico"/>
+     <bean id="sessionFactoryStansa" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSourceStansa"/>
         <property name="packagesToScan">
         	<list>
-        		<value>com.hochschild.insumoQuimico.domain</value>
-        		<value>com.hochschild.sca.local.domain</value>
+        		<value>com.stansa.domain</value>
+        		<value>com.sca.local.domain</value>
         	</list>
         </property>
         <property name="hibernateProperties" >
@@ -67,7 +68,7 @@
     </bean>
     <bean id="sessionFactoryGestionSCA" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
         <property name="dataSource" ref="dataSourceSCA"/>
-        <property name="packagesToScan" value="com.hochschild.sca.domain"/>
+        <property name="packagesToScan" value="com.sca.domain"/>
         <property name="hibernateProperties" >
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
@@ -77,14 +78,14 @@
         </property>
     </bean>
     
-    <bean id="hibernateTemplateInsumoQuimico" class="org.springframework.orm.hibernate3.HibernateTemplate">
-        <property name="sessionFactory" ref="sessionFactoryInsumoQuimico"/>
+    <bean id="hibernateTemplateStansa" class="org.springframework.orm.hibernate3.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactoryStansa"/>
     </bean>  
     <bean id="hibernateTemplateSCA" class="org.springframework.orm.hibernate3.HibernateTemplate">
         <property name="sessionFactory" ref="sessionFactoryGestionSCA"/>
     </bean>
     
 	<!-- Scans the classpath of this application for @Components to deploy as beans -->	
-	<context:component-scan base-package="com.hochschild" />
+	<context:component-scan base-package="com" />
 
 </beans>
