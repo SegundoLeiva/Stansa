@@ -4,12 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class ConsumoConsulta {
+public class EntregaPedidoConsulta {
 
 	@Id
 	private String idConsumo;
     private String sedeCliente;
-    private String tipoContrato;
+    private String estadoEntregaPedido;
     private String fechaCreacion;
 	private String idUsuarioCreacion;
 	public String getIdConsumo() {
@@ -24,11 +24,11 @@ public class ConsumoConsulta {
 	public void setSedeCliente(String sedeCliente) {
 		this.sedeCliente = sedeCliente;
 	}
-	public String getTipoContrato() {
-		return tipoContrato;
+	public String getEstadoEntregaPedido() {
+		return estadoEntregaPedido;
 	}
-	public void setTipoContrato(String tipoContrato) {
-		this.tipoContrato = tipoContrato;
+	public void setEstadoEntregaPedido(String estadoEntregaPedido) {
+		this.estadoEntregaPedido = estadoEntregaPedido;
 	}
 	public String getFechaCreacion() {
 		return fechaCreacion;

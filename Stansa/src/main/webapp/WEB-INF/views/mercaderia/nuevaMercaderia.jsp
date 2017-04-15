@@ -23,8 +23,8 @@
 							<div class="control-group">
 								<label class="control-label">Almacén</label>
 								<div class="controls">
-									<input type="text" class="form-control" value="${listaUnidadMineraAlmacen[0].almacen.almacen}" readonly="readonly">
-									<input type="hidden" name="idUnidadMineraAlmacen" id="idUnidadMineraAlmacen" value="${listaUnidadMineraAlmacen[0].idUnidadMineraAlmacen}">
+									<input type="text" class="form-control" value="${listaAlmacen[0].almacen}" readonly="readonly">
+									<input type="hidden" name="idAlmacen" id="idAlmacen" value="${listaAlmacen[0].idAlmacen}">
 								</div>
 							</div>
 

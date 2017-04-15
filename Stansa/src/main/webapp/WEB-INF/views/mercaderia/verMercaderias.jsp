@@ -59,6 +59,7 @@
 						<th class="center">Proveedor</th>
 						<th class="center">Guía Remisión</th>
 						<th class="center hidden-480">Fecha Creación</th>
+						<th class="center hidden-480">Usuario Creación</th>
 						<th class="center" width="10%">Opciones</th>
 				</tr>
 			</thead>
@@ -71,11 +72,17 @@
 								<td class="center">${jbean.rucProveedor} - ${jbean.descripcionProveedor}</td>
 								<td class="center">${jbean.guiaRemision}</td>
 								<td class="center hidden-480">${jbean.fechaCreacion}</td>
+								<td class="center hidden-480">${jbean.idUsuarioCreacion}</td>
 								<td class="center">
 									<a class="green" href="consultar.htm?id=<c:out value="${jbean.idMercaderia}" />"
 										title="Consultar"> <i
 											class="icon-align-justify bigger-130"></i>
 									</a>
+									<a class="blue" href="modificar.htm?id=<c:out value="${jbean.idMercaderia}" />"> <i
+										class="icon-edit bigger-130"></i></a>
+									<a class="red" href="#" onclick="eliminarSearch('${jbean.idMercaderia}')"> <i
+										class="icon-trash bigger-130"></i>
+								</a>
 								</td>
 
 							</tr>

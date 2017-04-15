@@ -15,8 +15,12 @@ import com.stansa.domain.Consumo;
 import com.stansa.domain.ConsumoConsulta;
 import com.stansa.domain.ConsumoConsultaModel;
 import com.stansa.domain.ConsumoDetalle;
-import com.stansa.domain.ConsumoParametrosEntrada;
 import com.stansa.domain.ConsumoDetalle.IdConsumo;
+import com.stansa.domain.ConsumoParametrosEntrada;
+import com.stansa.domain.EntregaPedidoConsulta;
+import com.stansa.domain.EntregaPedidoModel;
+import com.stansa.domain.Producto;
+import com.stansa.domain.SedeCliente;
 import com.stansa.util.Constantes;
 import com.stansa.util.FechasUtil;
 
@@ -38,7 +42,7 @@ public class ConsumoServiceImpl implements ConsumoService {
 		String idConsumo = consumoParametrosEntrada.getIdConsumo();
 		try {
 			if(StringUtils.isEmpty(idConsumo)){
-				idConsumo = ConsumoDAO.obtenerCorrelativoConsumo(consumoParametrosEntrada.getIdUnidadMinera());
+				idConsumo = ConsumoDAO.obtenerCorrelativoConsumo("C");
 				insertarConsumo(consumoParametrosEntrada,idConsumo);		
 			}else{
 				consumo = ConsumoDAO.obtieneConsumoPorId(idConsumo);
@@ -62,13 +66,13 @@ public class ConsumoServiceImpl implements ConsumoService {
 					id.setIdConsumoDetalle(new Long(index));
 					consumoDetalle.setId(id);
 					
-//					String idUnidadMineraInsumoPresentacion = jsonObj.getString("idUnidadMineraInsumoPresentacion");
-//					UnidadMineraInsumoPresentacion unidadMineraInsumoPresentacion = new UnidadMineraInsumoPresentacion();
-//					unidadMineraInsumoPresentacion.setIdUnidadMineraInsumoPresentacion(idUnidadMineraInsumoPresentacion);					
-//					consumoDetalle.setUnidadMineraInsumoPresentacion(unidadMineraInsumoPresentacion);
+					String idProducto = jsonObj.getString("idProducto");
+					Producto producto = new Producto();
+					producto.setIdProducto(new Long(idProducto));					
+					consumoDetalle.setProducto(producto);
 					
-					consumoDetalle.setCantidad(jsonObj.getDouble("cantidad"));
-					
+					consumoDetalle.setNumeroIp(jsonObj.getString("numeroIp"));
+					consumoDetalle.setNumeroSerie(jsonObj.getString("numeroSerie"));
 					consumoDetalle.setIdUsuarioCreacion(consumoParametrosEntrada.getNombreUsuario());
 					consumoDetalle.setFechaCreacion(new Date());
 
@@ -81,13 +85,14 @@ public class ConsumoServiceImpl implements ConsumoService {
 				}else if(indicador.equals(Constantes.INDICADOR_MODIFICADO) && !StringUtils.isEmpty(idDetalle)){//MODIFICA
 
 					consumoDetalle = ConsumoDetalleDAO.obtenerConsumoDetalle(consumoParametrosEntrada.getIdConsumo(), jsonObj.get("idDetalle").toString());
-					consumoDetalle.setCantidad(jsonObj.getDouble("cantidad"));
-
-//					String idUnidadMineraInsumoPresentacion = jsonObj.getString("idUnidadMineraInsumoPresentacion");
-//					UnidadMineraInsumoPresentacion unidadMineraInsumoPresentacion = new UnidadMineraInsumoPresentacion();
-//					unidadMineraInsumoPresentacion.setIdUnidadMineraInsumoPresentacion(idUnidadMineraInsumoPresentacion);					
-//					consumoDetalle.setUnidadMineraInsumoPresentacion(unidadMineraInsumoPresentacion);
 					
+					String idProducto = jsonObj.getString("idProducto");
+					Producto producto = new Producto();
+					producto.setIdProducto(new Long(idProducto));					
+					consumoDetalle.setProducto(producto);
+					
+					consumoDetalle.setNumeroIp(jsonObj.getString("numeroIp"));
+					consumoDetalle.setNumeroSerie(jsonObj.getString("numeroSerie"));
 					consumoDetalle.setIdUsuarioModificacion(consumoParametrosEntrada.getNombreUsuario());
 					consumoDetalle.setFechaModificacion(new Date());	
 					
@@ -115,15 +120,23 @@ public class ConsumoServiceImpl implements ConsumoService {
 	public void insertarConsumo(ConsumoParametrosEntrada data,String idConsumo){				
 		Consumo consumo = new Consumo();
 		consumo.setIdConsumo(idConsumo);
-
+		
+		SedeCliente sedeCliente = new SedeCliente();
+		sedeCliente.setIdSedeCliente(new Long(data.getIdSedeCliente()));
+		consumo.setSedeCliente(sedeCliente);
 
 		consumo.setIdUsuarioCreacion(data.getNombreUsuario());		
 		consumo.setFechaCreacion(new Date());
 		consumo.setFechaConsumo(FechasUtil.stringToDate(data.getFechaConsumo(), "dd/MM/yyyy"));
+		consumo.setEstadoEntregaPedido(Constantes.ESTADO_ENTREGA_PENDIENTE);
 		ConsumoDAO.insertarConsumo(consumo);
 	}
 	public List<ConsumoConsulta> listaConsumoConsulta(ConsumoConsultaModel consumoConsultaModel){
 		return ConsumoDAO.listaConsumoConsulta(consumoConsultaModel);
+	}
+	
+	public List<EntregaPedidoConsulta> listaEntregaPedidoConsulta(EntregaPedidoModel entregaPedidoModel){
+		return ConsumoDAO.listaEntregaPedidoConsulta(entregaPedidoModel);
 	}
 	
 }

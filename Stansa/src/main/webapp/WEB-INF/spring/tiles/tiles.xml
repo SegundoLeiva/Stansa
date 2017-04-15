@@ -60,7 +60,7 @@
 			value="/WEB-INF/views/mercaderia/nuevaMercaderia.jsp" />		
 	</definition>
 	
-		<!-- ################################ REGISTRO DE CONSUMOS ############################## -->
+	<!-- ################################ REGISTRO DE CONSUMOS ############################## -->
 	<definition name="verConsumos" extends="templateSistema">
 		<put-attribute name="js2" value="/WEB-INF/views/consumo/verConsumosJs.jsp" />
 		<put-attribute name="contenido"
@@ -70,6 +70,18 @@
 		<put-attribute name="js2" value="/WEB-INF/views/consumo/nuevoConsumoJs.jsp" />
 		<put-attribute name="contenido"
 			value="/WEB-INF/views/consumo/nuevoConsumo.jsp" />		
+	</definition>
+	
+	<!-- ################################ ENTREGA DE PEDIDOS ############################## -->
+	<definition name="verEntregaPedidos" extends="templateSistema">
+		<put-attribute name="js2" value="/WEB-INF/views/entregaPedido/verEntregaPedidosJs.jsp" />
+		<put-attribute name="contenido"
+			value="/WEB-INF/views/entregaPedido/verEntregaPedidos.jsp" />		
+	</definition>
+	<definition name="consultaEntregaPedido" extends="templateSistema">
+		<put-attribute name="js2" value="/WEB-INF/views/entregaPedido/consultaEntregaPedidoJs.jsp" />
+		<put-attribute name="contenido"
+			value="/WEB-INF/views/entregaPedido/consultaEntregaPedido.jsp" />		
 	</definition>
 
 

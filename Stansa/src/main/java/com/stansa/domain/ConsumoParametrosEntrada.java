@@ -10,31 +10,17 @@ public class ConsumoParametrosEntrada implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private String idUnidadMinera;
-	private String idUnidadMineraAlmacen;
-	private String idUnidadMineraArea;
+	private String idSedeCliente;
 	private String idConsumo;
 	private JSONArray consumoJSONArray;
 	private String nombreUsuario;
 	private String index;
 	private String fechaConsumo;
-	public String getIdUnidadMinera() {
-		return idUnidadMinera;
+	public String getIdSedeCliente() {
+		return idSedeCliente;
 	}
-	public void setIdUnidadMinera(String idUnidadMinera) {
-		this.idUnidadMinera = idUnidadMinera;
-	}
-	public String getIdUnidadMineraAlmacen() {
-		return idUnidadMineraAlmacen;
-	}
-	public void setIdUnidadMineraAlmacen(String idUnidadMineraAlmacen) {
-		this.idUnidadMineraAlmacen = idUnidadMineraAlmacen;
-	}
-	public String getIdUnidadMineraArea() {
-		return idUnidadMineraArea;
-	}
-	public void setIdUnidadMineraArea(String idUnidadMineraArea) {
-		this.idUnidadMineraArea = idUnidadMineraArea;
+	public void setIdSedeCliente(String idSedeCliente) {
+		this.idSedeCliente = idSedeCliente;
 	}
 	public String getIdConsumo() {
 		return idConsumo;
@@ -66,4 +52,6 @@ public class ConsumoParametrosEntrada implements Serializable{
 	public void setFechaConsumo(String fechaConsumo) {
 		this.fechaConsumo = fechaConsumo;
 	}
+	
+	
 }

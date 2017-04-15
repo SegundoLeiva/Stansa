@@ -2,24 +2,19 @@ package com.stansa.domain;
 
 import com.stansa.util.FechasUtil;
 
-public class ConsumoConsultaModel {
+public class EntregaPedidoModel {
 
 	private String idConsumo;
 	private String idSedeCliente;
-    private String idTipoContrato;
+    private String estadoEntregaPedido;
     private String fechaCreacion;
 	private String idUsuarioCreacion;
 	private String fechaInicio;
 	private String fechaFin;
 	
-	public ConsumoConsultaModel(Usuario usuarioSession){
+	public EntregaPedidoModel(){
 		this.fechaInicio=FechasUtil.getPrimerDiaDelMesActual();
 		this.fechaFin=FechasUtil.getUltimoDiaDelMesActual();
-		this.idUsuarioCreacion=usuarioSession.getIdUsuario();
-	}
-	
-	public ConsumoConsultaModel(){
-		
 	}
 
 	public String getIdConsumo() {
@@ -38,12 +33,12 @@ public class ConsumoConsultaModel {
 		this.idSedeCliente = idSedeCliente;
 	}
 
-	public String getIdTipoContrato() {
-		return idTipoContrato;
+	public String getEstadoEntregaPedido() {
+		return estadoEntregaPedido;
 	}
 
-	public void setIdTipoContrato(String idTipoContrato) {
-		this.idTipoContrato = idTipoContrato;
+	public void setEstadoEntregaPedido(String estadoEntregaPedido) {
+		this.estadoEntregaPedido = estadoEntregaPedido;
 	}
 
 	public String getFechaCreacion() {

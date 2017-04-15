@@ -14,6 +14,8 @@ import com.stansa.domain.Consumo;
 import com.stansa.domain.ConsumoConsulta;
 import com.stansa.domain.ConsumoConsultaModel;
 import com.stansa.domain.CorrelativoBD;
+import com.stansa.domain.EntregaPedidoConsulta;
+import com.stansa.domain.EntregaPedidoModel;
 
 @Repository(value="ConsumoDAO")
 public class ConsumoDAOImpl implements ConsumoDAO {
@@ -41,15 +43,31 @@ public class ConsumoDAOImpl implements ConsumoDAO {
     	try {
     		ConsumoConsulta consultaConsulta = new ConsumoConsulta();
     		BeanUtils.copyProperties(consultaConsulta, consumoConsultaModel);
-    		String[] paramNames = {"idUnidadMinera","idConsumo","fechaInicio","fechaFin","idUsuarioCreacion"};        
-            String[] values = {consultaConsulta.getIdConsumo(),	consumoConsultaModel.getFechaInicio(),consumoConsultaModel.getFechaFin(), consultaConsulta.getIdUsuarioCreacion()};
+    		String[] paramNames = {"idSedeCliente","idTipoContrato","fechaInicio","fechaFin","idUsuarioCreacion"};        
+            String[] values = {consumoConsultaModel.getIdSedeCliente(), consumoConsultaModel.getIdTipoContrato(), consumoConsultaModel.getFechaInicio(),consumoConsultaModel.getFechaFin(), consultaConsulta.getIdUsuarioCreacion()};
             listaConsumoConsulta = hibernateTemplate.findByNamedQueryAndNamedParam("listaConsumo",paramNames,values);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
         
         return listaConsumoConsulta;
-    }    
+    }  
+    
+    @SuppressWarnings("unchecked")
+   	public List<EntregaPedidoConsulta> listaEntregaPedidoConsulta(EntregaPedidoModel entregaPedidoModel){		
+       	List<EntregaPedidoConsulta> listaEntregaPedidoConsulta =  new ArrayList<EntregaPedidoConsulta>();
+       	try {
+       		EntregaPedidoConsulta entregaPedidoConsulta = new EntregaPedidoConsulta();
+       		BeanUtils.copyProperties(entregaPedidoConsulta, entregaPedidoModel);
+       		String[] paramNames = {"idSedeCliente","estadoEntregaPedido","fechaInicio","fechaFin"};        
+               String[] values = {entregaPedidoModel.getIdSedeCliente(), entregaPedidoModel.getEstadoEntregaPedido(), entregaPedidoModel.getFechaInicio(),entregaPedidoModel.getFechaFin()};
+               listaEntregaPedidoConsulta = hibernateTemplate.findByNamedQueryAndNamedParam("listaEntregaPedido",paramNames,values);
+   		} catch (Exception e) {
+   			// TODO: handle exception
+   		}
+           
+           return listaEntregaPedidoConsulta;
+       }  
 	
 	@Transactional
 	public void eliminarConsumo(String idConsumo) {
@@ -65,10 +83,10 @@ public class ConsumoDAOImpl implements ConsumoDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public String obtenerCorrelativoConsumo(String idUnidadMinera) {
+	public String obtenerCorrelativoConsumo(String tipoOperacion) {
 		String namedQuery = "correlativoConsumo";
-        String[] nameParams = {"idUnidadMinera"};
-        Object[] paramValues = {idUnidadMinera};
+        String[] nameParams = {"tipoOperacion"};
+        Object[] paramValues = {tipoOperacion};
 
         List<CorrelativoBD> idGenerado = hibernateTemplate.findByNamedQueryAndNamedParam(namedQuery,nameParams,paramValues);
 

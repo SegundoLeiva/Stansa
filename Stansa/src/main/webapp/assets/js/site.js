@@ -202,10 +202,8 @@ function cambiarIndicadorModificado(){
 
 function buscarConsulta(){
 	var form = document.forms[0];
-    form.idUnidadMinera.disabled=false;
     form.action="buscarConsulta.htm"
     form.submit();
-    form.idUnidadMinera.disabled=true;
 }
 
 function exportarReporteTxt(){

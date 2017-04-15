@@ -15,10 +15,17 @@ import org.hibernate.annotations.NamedNativeQuery;
 @NamedNativeQueries({
 @NamedNativeQuery(name = "listaConsumo",
 callable = true,
-query = "{call dbo.stpr_ListaConsumo(:idConsumo,:fechaInicio,:fechaFin,:idUsuarioCreacion)}",
+query = "{call dbo.stpr_ListaConsumo(:idSedeCliente,:idTipoContrato,:fechaInicio,:fechaFin,:idUsuarioCreacion)}",
 readOnly = true,
 cacheable = false,
-resultClass = ConsumoConsulta.class)
+resultClass = ConsumoConsulta.class),
+
+@NamedNativeQuery(name = "listaEntregaPedido",
+callable = true,
+query = "{call dbo.stpr_ListaEntregaPedido(:idSedeCliente,:estadoEntregaPedido,:fechaInicio,:fechaFin)}",
+readOnly = true,
+cacheable = false,
+resultClass = EntregaPedidoConsulta.class)
 })
 
 @Entity
@@ -42,6 +49,8 @@ public class Consumo implements Serializable {
 	private String idUsuarioModificacion;
 	private Date fechaModificacion;
 	private Date fechaConsumo;
+	private String estadoEntregaPedido;
+	
 	public String getIdConsumo() {
 		return idConsumo;
 	}
@@ -84,4 +93,11 @@ public class Consumo implements Serializable {
 	public void setFechaConsumo(Date fechaConsumo) {
 		this.fechaConsumo = fechaConsumo;
 	}
+	public String getEstadoEntregaPedido() {
+		return estadoEntregaPedido;
+	}
+	public void setEstadoEntregaPedido(String estadoEntregaPedido) {
+		this.estadoEntregaPedido = estadoEntregaPedido;
+	}
+	
 }

@@ -11,6 +11,7 @@ import org.springframework.util.StringUtils;
 
 import com.stansa.dao.MercaderiaDAO;
 import com.stansa.dao.MercaderiaDetalleDAO;
+import com.stansa.domain.Almacen;
 import com.stansa.domain.Mercaderia;
 import com.stansa.domain.MercaderiaConsulta;
 import com.stansa.domain.MercaderiaConsultaModel;
@@ -47,6 +48,11 @@ public class MercaderiaServiceImpl implements MercaderiaService {
 				mercaderia.setGuiaRemision(mercaderiaParametrosEntrada.getGuiaRemision());
 				mercaderia.setRucProveedor(mercaderiaParametrosEntrada.getRucProveedor());
 				mercaderia.setDescripcionProveedor(mercaderiaParametrosEntrada.getDescripcionProveedor());
+				
+				Almacen almacen = new Almacen();
+				almacen.setIdAlmacen(mercaderiaParametrosEntrada.getIdAlmacen());
+				mercaderia.setAlmacen(almacen);
+
 				mercaderia.setIdUsuarioModificacion(idUsuarioCreacion);		
 				mercaderia.setFechaModificacion(new Date());
 				mercaderia.setFechaMercaderia(FechasUtil.stringToDate(mercaderiaParametrosEntrada.getFechaMercaderia(), "dd/MM/yyyy"));
@@ -117,6 +123,11 @@ public class MercaderiaServiceImpl implements MercaderiaService {
 		mercaderia.setGuiaRemision(data.getGuiaRemision());
 		mercaderia.setRucProveedor(data.getRucProveedor());
 		mercaderia.setDescripcionProveedor(data.getDescripcionProveedor());
+		
+		Almacen almacen = new Almacen();
+		almacen.setIdAlmacen(data.getIdAlmacen());
+		mercaderia.setAlmacen(almacen);
+		
 		mercaderia.setIdUsuarioCreacion(data.getNombreUsuario());	
 		mercaderia.setFechaMercaderia(FechasUtil.stringToDate(data.getFechaMercaderia(), "dd/MM/yyyy"));
 		mercaderia.setFechaCreacion(new Date());

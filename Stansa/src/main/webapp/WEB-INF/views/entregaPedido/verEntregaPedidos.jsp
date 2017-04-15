@@ -30,13 +30,12 @@
 						</div>
 						<div class="span4">
 							<div class="control-group">
-								<label class="control-label" for="idTipoContrato">Tipo Contrato</label>
+								<label class="control-label" for="estadoEntregaPedido">Estado Pedido</label>
 								<div class="controls">
-									<select name="idTipoContrato" id="idTipoContrato">
+									<select name="estadoEntregaPedido" id="estadoEntregaPedido">
 										<option value="">Seleccionar</option>
-										<c:forEach var="item" items="${listaTipoContrato}">
-											<option value="${item.idTipoContrato}" ${item.idTipoContrato == beanConsulta.idTipoContrato ? 'selected' : ' '}>${item.tipoContrato}</option>
-										</c:forEach>
+										<option value="P" ${beanConsulta.estadoEntregaPedido=='P' ? 'selected' : ' '}>PENDIENTE</option>
+										<option value="A" ${beanConsulta.estadoEntregaPedido=='A' ? 'selected' : ' '}>APROBADO</option>
 									</select>		
 								</div>
 							</div>	
@@ -63,7 +62,7 @@
 							<th class="center" width="5%">Nro</th>
 							<th class="center">Código</th>
 							<th class="center">Cliente</th>
-							<th class="center">Tipo de Contrato</th>
+							<th class="center">Estado Pedido</th>
 							<th class="center">Fecha Creación</th>
 							<th class="center">Usuario Creación</th>
 							<th class="center" width="10%">Opciones</th>
@@ -76,7 +75,7 @@
 								<td class="center">${contador.count}</td>
 								<td class="center">${jbean.idConsumo}</td>
 								<td class="center">${jbean.sedeCliente}</td>
-								<td class="center">${jbean.tipoContrato}</td>
+								<td class="center">${jbean.estadoEntregaPedido}</td>
 								<td class="center">${jbean.fechaCreacion}</td>
 								<td class="center">${jbean.idUsuarioCreacion}</td>
 								<td class="center">

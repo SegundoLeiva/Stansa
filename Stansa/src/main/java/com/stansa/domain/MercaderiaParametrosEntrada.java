@@ -18,6 +18,7 @@ public class MercaderiaParametrosEntrada implements Serializable{
 	private String nombreUsuario;
 	private String fechaMercaderia;
 	private String index;
+	private String idAlmacen;
 	
 	public String getNombreUsuario() {
 		return nombreUsuario;
@@ -67,4 +68,11 @@ public class MercaderiaParametrosEntrada implements Serializable{
 	public void setFechaMercaderia(String fechaMercaderia) {
 		this.fechaMercaderia = fechaMercaderia;
 	}
+	public String getIdAlmacen() {
+		return idAlmacen;
+	}
+	public void setIdAlmacen(String idAlmacen) {
+		this.idAlmacen = idAlmacen;
+	}
+	
 }

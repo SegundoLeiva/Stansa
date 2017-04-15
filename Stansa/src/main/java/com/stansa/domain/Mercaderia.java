@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.NamedNativeQueries;
@@ -34,6 +36,11 @@ public class Mercaderia implements Serializable {
     private String guiaRemision;
     private String rucProveedor;
     private String descripcionProveedor;
+    
+    @ManyToOne
+    @JoinColumn(name="idAlmacen")
+    private Almacen almacen;
+    
     private Date fechaMercaderia;
     private String idUsuarioCreacion;
 	private Date fechaCreacion;
@@ -94,4 +101,11 @@ public class Mercaderia implements Serializable {
 	public void setFechaMercaderia(Date fechaMercaderia) {
 		this.fechaMercaderia = fechaMercaderia;
 	}
+	public Almacen getAlmacen() {
+		return almacen;
+	}
+	public void setAlmacen(Almacen almacen) {
+		this.almacen = almacen;
+	}
+	
 }

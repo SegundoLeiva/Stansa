@@ -13,7 +13,8 @@ $(document).ready(function() {
 	claseColumna=["idProducto","descripcionProducto","cantidad"];
 	inicializarStyleTablaDetalle();
 	
-	if('<c:out value="${accion}"/>'=="CONSULTAR"){
+	var accion = '<c:out value="${accion}"/>';
+	if(accion=="CONSULTAR" || accion=="EDITAR"){
 		$("#codigoGenerado").html("N° "+$("#idMercaderia").val());
 		var i=0;
 		<c:forEach var="jbean" items="${listaMercaderiaDetalle}">		
@@ -31,6 +32,9 @@ $(document).ready(function() {
 		</c:forEach>
 		index = "${listaMercaderiaDetalle.get(listaMercaderiaDetalle.size()-1).id.idMercaderiaDetalle+1}";
 		
+		
+	}
+	if(accion=="CONSULTAR"){
 		bloquearCamposConsultar();
 	}
 	

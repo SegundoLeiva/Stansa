@@ -48,8 +48,11 @@ public class ConsumoDetalle implements Serializable {
 	@JoinColumn(name = "idConsumo",referencedColumnName = "idConsumo", insertable=false,updatable = false, nullable=false)
 	private Consumo consumo;
 	
-	private Double cantidad;
-	
+	@ManyToOne
+	@JoinColumn(name = "idProducto")
+	private Producto producto;
+	private String numeroSerie;	
+	private String numeroIp;		
 	private String idUsuarioCreacion;	
 	private Date fechaCreacion;	
 	private String idUsuarioModificacion;	
@@ -65,12 +68,6 @@ public class ConsumoDetalle implements Serializable {
 	}
 	public void setConsumo(Consumo consumo) {
 		this.consumo = consumo;
-	}
-	public Double getCantidad() {
-		return cantidad;
-	}
-	public void setCantidad(Double cantidad) {
-		this.cantidad = cantidad;
 	}
 	public String getIdUsuarioCreacion() {
 		return idUsuarioCreacion;
@@ -95,6 +92,24 @@ public class ConsumoDetalle implements Serializable {
 	}
 	public void setFechaModificacion(Date fechaModificacion) {
 		this.fechaModificacion = fechaModificacion;
+	}
+	public Producto getProducto() {
+		return producto;
+	}
+	public void setProducto(Producto producto) {
+		this.producto = producto;
+	}
+	public String getNumeroSerie() {
+		return numeroSerie;
+	}
+	public void setNumeroSerie(String numeroSerie) {
+		this.numeroSerie = numeroSerie;
+	}
+	public String getNumeroIp() {
+		return numeroIp;
+	}
+	public void setNumeroIp(String numeroIp) {
+		this.numeroIp = numeroIp;
 	}
 	
 	

@@ -16,6 +16,7 @@ import com.stansa.BaseController.BaseMantenimientoController;
 import com.stansa.domain.Mercaderia;
 import com.stansa.domain.MercaderiaDetalle;
 import com.stansa.domain.MercaderiaParametrosEntrada;
+import com.stansa.service.AlmacenService;
 import com.stansa.service.MercaderiaDetalleService;
 import com.stansa.service.MercaderiaService;
 import com.stansa.service.ProductoService;
@@ -28,7 +29,9 @@ public class IngresarMercaderiaMantenimientoController extends BaseMantenimiento
 	@Autowired
     private MercaderiaDetalleService mercaderiaDetalleService;	
 	@Autowired
-    private ProductoService productoService;	
+    private ProductoService productoService;
+	@Autowired
+    private AlmacenService almacenService;
 
 	@Override
 	public String getPaginaMantenimiento() {
@@ -40,6 +43,7 @@ public class IngresarMercaderiaMantenimientoController extends BaseMantenimiento
 	public Model setViewAttributes(Model model) {
 		// TODO Auto-generated method stub
 		model.addAttribute("listaProducto", this.productoService.listaProducto());
+		model.addAttribute("listaAlmacen", this.almacenService.listaAlmacen());
 		return model;
 	}
 	
@@ -59,6 +63,10 @@ public class IngresarMercaderiaMantenimientoController extends BaseMantenimiento
 		model.addAttribute("mercaderia", mercaderia);
 		List<MercaderiaDetalle> listaMercaderiaDetalle = mercaderiaDetalleService.obtenerMercaderiaDetallePorIdMercaderia(id);
 		if(listaMercaderiaDetalle.size()>0)model.addAttribute("listaMercaderiaDetalle",listaMercaderiaDetalle);
+		
+		model.addAttribute("listaProducto", this.productoService.listaProducto());
+		model.addAttribute("listaAlmacen", this.almacenService.listaAlmacen());
+		
 		return model;
 	}
 
