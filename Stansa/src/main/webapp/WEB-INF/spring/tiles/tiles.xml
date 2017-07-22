@@ -83,6 +83,13 @@
 		<put-attribute name="contenido"
 			value="/WEB-INF/views/entregaPedido/consultaEntregaPedido.jsp" />		
 	</definition>
+	
+	<!-- ################################ CARGA DE REGISTROS MFP ############################## -->
+	<definition name="cargaRegistroMFP" extends="templateSistema">
+		<put-attribute name="js2" value="/WEB-INF/views/cargaRegistroMFP/cargaRegistroMFPJs.jsp" />
+		<put-attribute name="contenido"
+			value="/WEB-INF/views/cargaRegistroMFP/cargaRegistroMFP.jsp" />		
+	</definition>
 
 
 </tiles-definitions>

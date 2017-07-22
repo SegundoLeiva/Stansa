@@ -6,6 +6,7 @@ var consumoJSONArray  = arrayJsonDetalle;
 var index = 1;
 var dataSedeCliente=[];
 var dataInsumo=[];
+var estadoPedido = "<label><input type='checkbox' class='checkEstadoPedido'><span class='lbl'></span></label>";
 
 $(document).ready(function() {
 	tabla="#tablaConsumoDetalle";
@@ -17,7 +18,7 @@ $(document).ready(function() {
 		var i=0;
 		<c:forEach var="jbean" items="${listaConsumoDetalle}">		
 		var data = ["${jbean.producto.idProducto}",
-	             	"${jbean.producto.descripcion}","${jbean.numeroSerie}","${jbean.numeroIp}"];
+	             	"${jbean.producto.descripcion}","${jbean.numeroSerie}","${jbean.numeroIp}",estadoPedido];
 		agregarDetalle(data); 
 		consumoJSONArray[i].idDetalle="${jbean.id.idConsumoDetalle}";
 		consumoJSONArray[i].idProducto="${jbean.producto.idProducto}";
@@ -28,10 +29,8 @@ $(document).ready(function() {
 			i++;
 		</c:forEach>
 		index = "${listaConsumoDetalle.get(listaConsumoDetalle.size()-1).id.idConsumoDetalle+1}";
-		
-		if('<c:out value="${accion}"/>'=="CONSULTAR"){
-			bloquearCamposConsultar();		
-		}
+
+// 		bloquearCamposConsultar();		
 	}
 	
 	dataSedeCliente = [{id:" ",text:"Seleccionar", tipoContrato:""}];
@@ -82,7 +81,7 @@ function agregarDetalle(data){
 		    idDetalle:'',idProducto:'',cantidad:'',descripcionProducto:'',numeroSerie:'',numeroIp:'',
 		    indicadorBD: INDICADOR_NUEVO};
 	consumoJSONArray.push(mercaderiaJSON);
-	agregarFila(data);
+	agregarFilaSinCheckBox(data);
 }
 
 $("#btnEditarDetalle").click(function(){

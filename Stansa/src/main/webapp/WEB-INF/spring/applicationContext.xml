@@ -31,6 +31,7 @@
 			<mvc:mapping  path="/ingresarMercaderia/*"/> 
 			<mvc:mapping  path="/registrarConsumo/*"/>
 			<mvc:mapping  path="/entregaPedido/*"/>
+			<mvc:mapping  path="/cargaRegistroMFP/*"/>
 			<mvc:mapping  path="/home/*"/> 
 			<mvc:exclude-mapping path="/login.htm" />
 			<bean class="com.stansa.session.ApplicationSessionInterceptor" />

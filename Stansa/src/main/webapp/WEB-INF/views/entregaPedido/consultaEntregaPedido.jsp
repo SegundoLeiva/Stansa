@@ -9,7 +9,6 @@
 		<div class="row-fluid">
 			<div class="page-content">
 				<div class="span12">
-
 					<div class="row-fluid">
 						<div class="span4">
 							<div class="control-group">
@@ -50,6 +49,16 @@
 							</div>		
 						</div>
 					</div>
+<!-- 					<div class="row-fluid"> -->
+<!-- 						<div class="span8"> -->
+<!-- 							<div class="control-group"> -->
+<!-- 								<label class="control-label" for="observacion">Observación</label> -->
+<!-- 								<div class="controls"> -->
+<!-- 									<textarea rows="2" class="span12"></textarea> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div>			 -->
+<!-- 					</div> -->
 				</div>
 			</div>
 
@@ -68,20 +77,14 @@
 					class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
-							<th class="center" width="5%">
-								<label><input type="checkbox" class="checkSelectedAll">
-								<span class="lbl"></span></label>
-							</th>
 							<th class="center" width="10%">Código</th>
 							<th class="center" width="50%">Descripcion</th>
 							<th class="center">Nro Serie</th>
 							<th class="center">Nro Ip</th>
+							<th class="center">Estado</th>
 						</tr>
 					</thead>
 					<tbody>
 					</tbody>
 				</table>
 </div>
-
-
-<%@ include file="/WEB-INF/views/consumo/nuevoConsumoDetalle.jsp"%>

@@ -38,7 +38,7 @@ public class EntregaPedidoMantenimientoController extends BaseMantenimientoContr
 	@Override
 	public String getPaginaMantenimiento() {
 		// TODO Auto-generated method stub
-		return "nuevoConsumo";
+		return "consultaEntregaPedido";
 	}
 	
 	@Override

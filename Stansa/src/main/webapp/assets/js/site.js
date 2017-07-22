@@ -123,6 +123,16 @@ function agregarFila(data){
 	for (var i = 0; i < data.length; i++) {
 		text+="<td class='center "+claseColumna[i]+"'>"+data[i]+"</td>";
 	}
+	text+="</tr>";
+	$(tabla+' tBody').append(text);
+}
+
+function agregarFilaSinCheckBox(data){
+	var text = "<tr>";
+	for (var i = 0; i < data.length; i++) {
+		text+="<td class='center "+claseColumna[i]+"'>"+data[i]+"</td>";
+	}
+	text+="</tr>";
 	$(tabla+' tBody').append(text);
 }
 

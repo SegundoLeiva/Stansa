@@ -41,7 +41,7 @@ public class EntregaPedidoSearchController extends BaseSearchController{
 	
 	@Override
 	public List listarConsulta(Model model, HttpSession sesion,HttpServletRequest req){
-
+		this.mostrarBotonNuevo = false;
    		model.addAttribute("listaSedeCliente", this.sedeClienteService.listaSedeCliente());
         return consumoService.listaEntregaPedidoConsulta((EntregaPedidoModel)this.formBusqueda);         
 	}
