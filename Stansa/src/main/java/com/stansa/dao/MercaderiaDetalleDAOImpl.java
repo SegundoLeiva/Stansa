@@ -38,7 +38,7 @@ public class MercaderiaDetalleDAOImpl implements MercaderiaDetalleDAO {
 	@SuppressWarnings("unchecked")
 	public List<MercaderiaDetalle> obtenerMercaderiaDetallePorIdMercaderia(String id){
 		 String sql = "from MercaderiaDetalle WHERE idMercaderia = '"+id+"'";
-		 List<MercaderiaDetalle> resultado= hibernateTemplate.find(sql);
+		 List<MercaderiaDetalle> resultado= (List<MercaderiaDetalle>) hibernateTemplate.find(sql);
 	      
 	     return resultado;
 	}
@@ -47,7 +47,7 @@ public class MercaderiaDetalleDAOImpl implements MercaderiaDetalleDAO {
 	public MercaderiaDetalle obtenerMercaderiaDetalle(String idMercaderia,String idMercaderiaDetalle){
 		String sql = "from MercaderiaDetalle WHERE idMercaderia = '"+idMercaderia+"' "
 				+ "and idMercaderiaDetalle="+idMercaderiaDetalle;
-		 List<MercaderiaDetalle> resultado= hibernateTemplate.find(sql);
+		 List<MercaderiaDetalle> resultado= (List<MercaderiaDetalle>) hibernateTemplate.find(sql);
 	      
 	     return resultado.get(0);
 	}
@@ -60,7 +60,7 @@ public class MercaderiaDetalleDAOImpl implements MercaderiaDetalleDAO {
 
 		String sql = "from MercaderiaDetalle WHERE unidadMineraInsumoPresentacion.idUnidadMinera = '"+idUnidadMinera+"' "
 		 		+ "and mercaderia.fechaMercaderia Between '"+fechaIni+"' and '"+fechaFin+"'";
-		List<MercaderiaDetalle> resultado= hibernateTemplate.find(sql);
+		List<MercaderiaDetalle> resultado= (List<MercaderiaDetalle>) hibernateTemplate.find(sql);
 	      
 	    return resultado;
 	}

@@ -38,7 +38,7 @@ public class ConsumoDetalleDAOImpl implements ConsumoDetalleDAO {
 	@SuppressWarnings("unchecked")
 	public List<ConsumoDetalle> obtenerConsumoDetallePorIdConsumo(String id){
 		 String sql = "from ConsumoDetalle WHERE idConsumo = '"+id+"'";
-		 List<ConsumoDetalle> resultado= hibernateTemplate.find(sql);
+		 List<ConsumoDetalle> resultado= (List<ConsumoDetalle>) hibernateTemplate.find(sql);
 	      
 	     return resultado;
 	}
@@ -47,7 +47,7 @@ public class ConsumoDetalleDAOImpl implements ConsumoDetalleDAO {
 	public ConsumoDetalle obtenerConsumoDetalle(String idConsumo,String idConsumoDetalle){
 		String sql = "from ConsumoDetalle WHERE idConsumo = '"+idConsumo+"' "
 				+ "and idConsumoDetalle='"+idConsumoDetalle+"'";
-		 List<ConsumoDetalle> resultado= hibernateTemplate.find(sql);
+		 List<ConsumoDetalle> resultado= (List<ConsumoDetalle>) hibernateTemplate.find(sql);
 	      
 	     return resultado.get(0);
 	}
@@ -60,7 +60,7 @@ public class ConsumoDetalleDAOImpl implements ConsumoDetalleDAO {
 
 		String sql = "from ConsumoDetalle WHERE unidadMineraInsumoPresentacion.idUnidadMinera = '"+idUnidadMinera+"' "
 		 		+ "and consumo.fechaConsumo Between '"+fechaIni+"' and '"+fechaFin+"'";
-		List<ConsumoDetalle> resultado= hibernateTemplate.find(sql);
+		List<ConsumoDetalle> resultado= (List<ConsumoDetalle>) hibernateTemplate.find(sql);
 	      
 	    return resultado;
 	}

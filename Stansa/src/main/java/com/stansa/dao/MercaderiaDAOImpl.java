@@ -44,7 +44,7 @@ public class MercaderiaDAOImpl implements MercaderiaDAO {
             String[] paramNames = {"idMercaderia","rucProveedor","guiaRemision","fechaInicio","fechaFin","idUsuarioCreacion"};        
             String[] values = {mercaderiaConsulta.getIdMercaderia(),mercaderiaConsulta.getRucProveedor(),
             		mercaderiaConsulta.getGuiaRemision(),mercaderiaConsultaModel.getFechaInicio(),mercaderiaConsultaModel.getFechaFin(), mercaderiaConsulta.getIdUsuarioCreacion()};
-            listaMercaderiaConsulta = hibernateTemplate.findByNamedQueryAndNamedParam("listaMercaderia",paramNames,values);
+            listaMercaderiaConsulta = (List<MercaderiaConsulta>) hibernateTemplate.findByNamedQueryAndNamedParam("listaMercaderia",paramNames,values);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -71,7 +71,7 @@ public class MercaderiaDAOImpl implements MercaderiaDAO {
         String[] nameParams = {"tipoOperacion"};
         Object[] paramValues = {tipoOperacion};
 
-        List<CorrelativoBD> idGenerado = hibernateTemplate.findByNamedQueryAndNamedParam(namedQuery,nameParams,paramValues);
+        List<CorrelativoBD> idGenerado = (List<CorrelativoBD>) hibernateTemplate.findByNamedQueryAndNamedParam(namedQuery,nameParams,paramValues);
 
         if(idGenerado.isEmpty()){
             return "";

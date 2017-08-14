@@ -18,7 +18,7 @@ public class TipoContratoDAOImpl implements TipoContratoDAO {
     @SuppressWarnings("unchecked")
 	public List<TipoContrato> listaTipoContrato() {
     	String query = "from TipoContrato";
-    	List<TipoContrato> resultado = hibernateTemplate.find(query);
+    	List<TipoContrato> resultado = (List<TipoContrato>) hibernateTemplate.find(query);
         return  resultado;
     }
    

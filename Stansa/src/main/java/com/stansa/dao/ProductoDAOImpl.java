@@ -18,7 +18,7 @@ public class ProductoDAOImpl implements ProductoDAO {
     @SuppressWarnings("unchecked")
 	public List<Producto> listaProducto() {
     	String query = "from Producto";
-    	List<Producto> resultado = hibernateTemplate.find(query);
+    	List<Producto> resultado = (List<Producto>) hibernateTemplate.find(query);
         return  resultado;
     }
    

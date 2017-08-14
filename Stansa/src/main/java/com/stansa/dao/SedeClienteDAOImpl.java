@@ -18,7 +18,7 @@ public class SedeClienteDAOImpl implements SedeClienteDAO {
     @SuppressWarnings("unchecked")
 	public List<SedeCliente> listaSedeCliente() {
     	String query = "from SedeCliente";
-    	List<SedeCliente> resultado = hibernateTemplate.find(query);
+    	List<SedeCliente> resultado = (List<SedeCliente>) hibernateTemplate.find(query);
         return  resultado;
     }
    

@@ -23,7 +23,7 @@ public class OpcionesDAOImpl implements OpcionesDAO {
         String[] paramNames = {"idAplicacion", "idUsuario"};
          String[] values = {idAplicacion, idUsuario};
 
-        List<OpcionMenu> opciones= hibernateTemplateSeguridad.findByNamedQueryAndNamedParam("getOpciones", paramNames, values);
+        List<OpcionMenu> opciones= (List<OpcionMenu>) hibernateTemplateSeguridad.findByNamedQueryAndNamedParam("getOpciones", paramNames, values);
 
         List<String> resultado = new ArrayList<String>();
 
@@ -38,7 +38,7 @@ public class OpcionesDAOImpl implements OpcionesDAO {
          String[] paramNames = {"idAplicacion", "idUsuario"};
          String[] values = {idAplicacion,idUsuario};
 
-        List<OpcionAcciones> opciones= hibernateTemplateSeguridad.findByNamedQueryAndNamedParam("getOpcionesAcciones",paramNames,values);
+        List<OpcionAcciones> opciones= (List<OpcionAcciones>) hibernateTemplateSeguridad.findByNamedQueryAndNamedParam("getOpcionesAcciones",paramNames,values);
 
         return opciones;
     }

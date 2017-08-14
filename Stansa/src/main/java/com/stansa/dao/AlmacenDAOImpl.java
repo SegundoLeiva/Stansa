@@ -18,7 +18,7 @@ public class AlmacenDAOImpl implements AlmacenDAO {
     @SuppressWarnings("unchecked")
 	public List<Almacen> listaAlmacen() {
     	String query = "from Almacen";
-    	List<Almacen> resultado = hibernateTemplate.find(query);
+    	List<Almacen> resultado = (List<Almacen>) hibernateTemplate.find(query);
         return  resultado;
     }
    

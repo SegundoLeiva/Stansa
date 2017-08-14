@@ -1,12 +1,49 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-</body>
-</html>
+<script type="text/javascript">
+
+$(document).ready(function() {
+	
+	$("#btnArchivo").click(function(){
+
+		var fd = new FormData();
+ 		var file = $('input[name=cargaRegistro]')[0].files[0];
+ 		fd.append('file1', file);
+		fd.append('prueba1', "aaaaaa");
+
+		 if(fnValidarArchivo()){
+// 			alertify.confirm("Guardar","¿Usted está seguro de guardar los registros?",
+// 					function(){
+				showLoading();
+				$.ajax({
+					type : 'POST',
+					data: fd,
+					processData: false,
+					contentType: false,
+					url : '${pageContext.request.contextPath}/cargaRegistroMFP/obtenerArchivo.htm',
+					success : function(data) {
+						hideLoading();
+// 						if(data!=""){	
+// 							index = actualizarDetalleGrabar(index);						
+// 							$("#idConsumo").val(data);	
+// 							$("#codigoGenerado").html("N° "+data);
+// 							mensajeTransaccion("guardar");											
+// 						}else{
+// 							mensajeTransaccion("error");
+// 						}
+						
+					}
+				});
+// 							  },
+// 					function(){});
+		}
+	});
+
+
+} );
+
+function fnValidarArchivo(){
+	return true;
+}
+
+</script>

@@ -1,12 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ include file="/WEB-INF/views/include.jsp"%>
 
-</body>
-</html>
+<div class="page-header position-relative">
+	<form id="formConsumo" method="POST" class="form-horizontal">
+		<div class="row-fluid">
+			<div class="page-content">
+				<div class="span12">
+
+					<div class="row-fluid">
+						<div class="span4">
+							<div class="control-group">
+								<label class="control-label" for="">Cargar Archivo</label>
+								<div class="controls">
+									<input type="file" id="cargaRegistro" name="cargaRegistro">
+								</div>
+							</div>
+						</div>
+						
+						<a href="#" id="btnArchivo">dede</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</form>
+
+</div>

@@ -45,7 +45,7 @@ public class ConsumoDAOImpl implements ConsumoDAO {
     		BeanUtils.copyProperties(consultaConsulta, consumoConsultaModel);
     		String[] paramNames = {"idSedeCliente","idTipoContrato","fechaInicio","fechaFin","idUsuarioCreacion"};        
             String[] values = {consumoConsultaModel.getIdSedeCliente(), consumoConsultaModel.getIdTipoContrato(), consumoConsultaModel.getFechaInicio(),consumoConsultaModel.getFechaFin(), consultaConsulta.getIdUsuarioCreacion()};
-            listaConsumoConsulta = hibernateTemplate.findByNamedQueryAndNamedParam("listaConsumo",paramNames,values);
+            listaConsumoConsulta = (List<ConsumoConsulta>) hibernateTemplate.findByNamedQueryAndNamedParam("listaConsumo",paramNames,values);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -61,7 +61,7 @@ public class ConsumoDAOImpl implements ConsumoDAO {
        		BeanUtils.copyProperties(entregaPedidoConsulta, entregaPedidoModel);
        		String[] paramNames = {"idSedeCliente","estadoEntregaPedido","fechaInicio","fechaFin"};        
                String[] values = {entregaPedidoModel.getIdSedeCliente(), entregaPedidoModel.getEstadoEntregaPedido(), entregaPedidoModel.getFechaInicio(),entregaPedidoModel.getFechaFin()};
-               listaEntregaPedidoConsulta = hibernateTemplate.findByNamedQueryAndNamedParam("listaEntregaPedido",paramNames,values);
+               listaEntregaPedidoConsulta = (List<EntregaPedidoConsulta>) hibernateTemplate.findByNamedQueryAndNamedParam("listaEntregaPedido",paramNames,values);
    		} catch (Exception e) {
    			// TODO: handle exception
    		}
@@ -88,7 +88,7 @@ public class ConsumoDAOImpl implements ConsumoDAO {
         String[] nameParams = {"tipoOperacion"};
         Object[] paramValues = {tipoOperacion};
 
-        List<CorrelativoBD> idGenerado = hibernateTemplate.findByNamedQueryAndNamedParam(namedQuery,nameParams,paramValues);
+        List<CorrelativoBD> idGenerado = (List<CorrelativoBD>) hibernateTemplate.findByNamedQueryAndNamedParam(namedQuery,nameParams,paramValues);
 
         if(idGenerado.isEmpty()){
             return "";

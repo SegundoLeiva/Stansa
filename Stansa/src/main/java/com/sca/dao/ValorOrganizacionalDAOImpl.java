@@ -19,7 +19,7 @@ public class ValorOrganizacionalDAOImpl implements ValorOrganizacionalDAO {
          String[] paramNames = {"idAplicacion", "idUsuario","idEstructura"};
          String[] values = {""+idAplicacion,idUsuario,idEstructura};
 
-        List<ValorOrganizacional> valores= hibernateTemplateSeguridad.findByNamedQueryAndNamedParam("getValoresOrganizacionales",paramNames,values);
+        List<ValorOrganizacional> valores= (List<ValorOrganizacional>) hibernateTemplateSeguridad.findByNamedQueryAndNamedParam("getValoresOrganizacionales",paramNames,values);
 
         return valores;
     }

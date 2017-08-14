@@ -35,7 +35,7 @@ public class OpcionesPantallaSistemaDAOImpl implements OpcionesPantallaSistemaDA
         String consulta = "from OpcionPantallaSistema opcion where opcion.idOpcion in (" + opciones + ")";
 
         try {
-            return hibernateTemplate.find(consulta);
+            return (List<OpcionPantallaSistema>) hibernateTemplate.find(consulta);
         } catch(NullPointerException e) {
             return null;
         }
