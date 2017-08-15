@@ -5,6 +5,7 @@
 	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:sec="http://www.springframework.org/schema/security"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:task="http://www.springframework.org/schema/task"
 	xsi:schemaLocation="
 	http://www.springframework.org/schema/mvc 
 	http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
@@ -15,7 +16,9 @@
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context-3.2.xsd
 		http://www.springframework.org/schema/tx
-		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/task 
+		http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 		
 				
 		<!-- holding properties for database connectivity / -->
@@ -90,6 +93,29 @@
     <bean id="hibernateTemplateSCA" class="org.springframework.orm.hibernate3.HibernateTemplate">
         <property name="sessionFactory" ref="sessionFactoryGestionSCA"/>
     </bean>
+    
+    
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="sleivac90@gmail.com" />
+		<property name="password" value="leao1990" />
+	
+		<property name="javaMailProperties">
+		   <props>
+	       	      <prop key="mail.smtp.auth">true</prop>
+	       	      <prop key="mail.smtp.starttls.enable">true</prop>
+	       	   </props>
+		</property>
+	</bean>
+
+	 <bean id="mailMail" class="com.stansa.util.EmailUtil">
+	        <property name="mailSender" ref="mailSender" />
+    </bean>
+
+    <task:annotation-driven />
+    <bean id="envioCorreoJobService" class="com.stansa.service.EnvioCorreoJobService"></bean>
+    
     
 	<!-- Scans the classpath of this application for @Components to deploy as beans -->	
 	<context:component-scan base-package="com" />
