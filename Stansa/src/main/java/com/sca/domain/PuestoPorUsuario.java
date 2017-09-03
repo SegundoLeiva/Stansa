@@ -16,6 +16,9 @@ public class PuestoPorUsuario implements Serializable {
     private String correoUsuario;
     private String divisionUsuario;
     private String sociedadUsuario;
+    private String activo;
+    private String esEmpleado;
+    private Long idSedeCliente;
 
     public String getDivisionUsuario() {
         return divisionUsuario;
@@ -72,5 +75,29 @@ public class PuestoPorUsuario implements Serializable {
     public void setCorreoUsuario(String correoUsuario) {
         this.correoUsuario = correoUsuario;
     }
+
+	public String getActivo() {
+		return activo;
+	}
+
+	public void setActivo(String activo) {
+		this.activo = activo;
+	}
+
+	public String getEsEmpleado() {
+		return esEmpleado;
+	}
+
+	public void setEsEmpleado(String esEmpleado) {
+		this.esEmpleado = esEmpleado;
+	}
+
+	public Long getIdSedeCliente() {
+		return idSedeCliente;
+	}
+
+	public void setIdSedeCliente(Long idSedeCliente) {
+		this.idSedeCliente = idSedeCliente;
+	}
     
 }

@@ -71,6 +71,8 @@ public class LoginController {
                                 usuario.setNombre(puestoPorUsuario.getNombreUsuario()!=null?puestoPorUsuario.getNombreUsuario():"");
                                 usuario.setSociedadUsuario(puestoPorUsuario.getSociedadUsuario()!=null?puestoPorUsuario.getSociedadUsuario():"");
                                 usuario.setDivisionUsuario(puestoPorUsuario.getDivisionUsuario()!=null?puestoPorUsuario.getDivisionUsuario():"");
+                                if(puestoPorUsuario.getEsEmpleado().equals("S"))usuario.setEsEmpleado(true);else usuario.setEsEmpleado(false);
+                                usuario.setIdSedeCliente(puestoPorUsuario.getIdSedeCliente());
                                 usuario.setEsUsuarioLogistica(esUsuarioLogistica(listaOpcionesApp));
                                 usuario.setLst_opciones(listaOpcionesApp);
                                 session.setAttribute("puestoPorUsuario", puestoPorUsuario);                                

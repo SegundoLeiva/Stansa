@@ -19,7 +19,7 @@ public class excel {
 		for (int z = 1; z <= 77; z++) {
 			String archivoCrear = "LOTE"+String.format("%04d", z);
 			String archivoAlfresco = "LOTE-ARCA"+String.format("%04d", z);
-			Workbook workbook = Workbook.getWorkbook(new File("E:\\ARCATA_OBREROS.xls"));
+			Workbook workbook = Workbook.getWorkbook(new File("D:\\dataTesis.xlsx"));
 			
 			int numero =  obtenerNumero(workbook,archivoCrear);
 //			WritableWorkbook workbook2 = Workbook.createWorkbook(new File("C:\\Users\\segundo.leiva\\Desktop\\Alfresco\\ARCATA_OBREROS\\"+archivoCrear+"_O-"+numero+".xls"));
@@ -41,15 +41,7 @@ public class excel {
 					for (int j = 0; j < 8; j++) {
 						cell1 = sheet.getCell(j, i);
 						
-//						hoja.addCell(new jxl.write.Label(1, 4, "N°"));
-//						hoja.addCell(new jxl.write.Label(2, 4, "NOMBRE"));
-//						hoja.addCell(new jxl.write.Label(3, 4, "TITULO"));
-//						hoja.addCell(new jxl.write.Label(4, 4, "DESCRIPCION"));
-//						hoja.addCell(new jxl.write.Label(5, 4, "TIPO MIME"));
-//						hoja.addCell(new jxl.write.Label(6, 4, "TIPO DE PLANILLA"));
-//						hoja.addCell(new jxl.write.Label(7, 4, "COMPAÑÍA"));
-//						hoja.addCell(new jxl.write.Label(8, 4, "MES"));
-//						hoja.addCell(new jxl.write.Label(9, 4, "AÑO"));
+
 //						
 //						
 //						

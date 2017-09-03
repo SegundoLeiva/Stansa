@@ -90,6 +90,13 @@
 		<put-attribute name="contenido"
 			value="/WEB-INF/views/cargaRegistroMFP/cargaRegistroMFP.jsp" />		
 	</definition>
+	
+	<!-- ################################ REPORTE TONERS POR CLIENTE ############################## -->
+	<definition name="verReporteTonerCliente" extends="templateSistema">
+		<put-attribute name="js2" value="/WEB-INF/views/reporteTonerCliente/verReporteTonerClienteJs.jsp" />
+		<put-attribute name="contenido"
+			value="/WEB-INF/views/reporteTonerCliente/verReporteTonerCliente.jsp" />		
+	</definition>
 
 
 </tiles-definitions>

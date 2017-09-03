@@ -4,10 +4,9 @@
 	<form id="formConsumo" method="POST" class="form-horizontal">
 		<div class="row-fluid">
 			<div class="page-content">
-				<div class="span12">
+				<div class="span5">
 
-					<div class="row-fluid">
-						<div class="span4">
+						<div class="row">
 							<div class="control-group">
 								<label class="control-label" for="">Cargar Archivo</label>
 								<div class="controls">
@@ -16,9 +15,10 @@
 							</div>
 						</div>
 						
-						<a href="#" id="btnArchivo">dede</a>
+						<div class="row">
+							<button type="button" id="btnArchivo" class="btn btn-info btn-small pull-right">Cargar</button>
+						</div>
 					</div>
-				</div>
 			</div>
 
 		</div>

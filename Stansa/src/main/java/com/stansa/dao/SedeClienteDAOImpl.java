@@ -23,7 +23,7 @@ public class SedeClienteDAOImpl implements SedeClienteDAO {
     }
    
 	public SedeCliente obtieneSedeClientePorId(String id){
-        return hibernateTemplate.get(SedeCliente.class, id);
+        return hibernateTemplate.get(SedeCliente.class, new Long(id));
     }
 }
 

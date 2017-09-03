@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.stansa.dao.ConsumoDetalleDAO;
 import com.stansa.domain.ConsumoDetalle;
+import com.stansa.domain.ReporteTonerClienteConsultaModel;
 
 @Service
 public class ConsumoDetalleServiceImpl implements ConsumoDetalleService {
@@ -19,9 +20,9 @@ public class ConsumoDetalleServiceImpl implements ConsumoDetalleService {
 		return consumoDetalleDAO.obtenerConsumoDetallePorIdConsumo(id);
 	}
 
-	public List<ConsumoDetalle> obtenerConsumoDetalleReporte(String idUnidadMinera,String anio, String mes) {
+	public List<ConsumoDetalle> obtenerConsumoDetalleReporte(ReporteTonerClienteConsultaModel model) {
 		// TODO Auto-generated method stub
-		return consumoDetalleDAO.obtenerConsumoDetalleReporte(idUnidadMinera, anio, mes);
+		return consumoDetalleDAO.obtenerConsumoDetalleReporte(model);
 	}
 
 }

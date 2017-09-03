@@ -70,7 +70,8 @@
 										<div class="widget-body">
 											<div class="widget-main center">
 												<h4 class="header blue">
-													<i class="ace-icon icon-beaker green"></i> Sistema Insumos Químicos
+<!-- 													<i class="ace-icon icon-beaker green"></i> -->
+													 Sistema Stansa
 												</h4>
 
 												<div class="space-6"></div>

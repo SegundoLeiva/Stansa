@@ -39,6 +39,8 @@ public class SedeCliente implements Serializable{
     
     private Date fechaFinContrato;
 
+    private String lugarOficina;
+    
 	public Long getIdSedeCliente() {
 		return idSedeCliente;
 	}
@@ -87,4 +89,13 @@ public class SedeCliente implements Serializable{
 		this.fechaFinContrato = fechaFinContrato;
 	}
 
+	public String getLugarOficina() {
+		return lugarOficina;
+	}
+
+	public void setLugarOficina(String lugarOficina) {
+		this.lugarOficina = lugarOficina;
+	}
+
+	
 }

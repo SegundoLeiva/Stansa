@@ -1,12 +1,13 @@
 package com.stansa.controller.cargaRegistroMFP;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import jxl.Cell;
+import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
@@ -22,7 +23,7 @@ import com.stansa.BaseController.BaseSearchController;
 
 @Controller
 @RequestMapping(value = "/cargaRegistroMFP")
-public class CargaRegistroMFPSearchoController extends BaseSearchController{
+public class CargaRegistroMFPSearchController extends BaseSearchController{
 
 	@Override
 	public Object getFormBusqueda() {
@@ -53,12 +54,22 @@ public class CargaRegistroMFPSearchoController extends BaseSearchController{
 	@RequestMapping(value="/obtenerArchivo.htm", method = {RequestMethod.POST})
     @ResponseBody
 	public String obtenerArchivo(
-			@RequestParam("file1") MultipartFile file2,
-			@RequestParam("prueba1") String prueba1) throws IllegalStateException, IOException{
+			@RequestParam("file1") MultipartFile file) throws IllegalStateException, IOException{
 		
 		try {
-			Workbook workbook = Workbook.getWorkbook(new File("E:\\ARCATA_OBREROS.xls"));
-			
+			Workbook workbook = Workbook.getWorkbook(file.getInputStream());
+			Sheet sheet = workbook.getSheet(0);
+			Cell cell1;
+			int fila = sheet.getRows();
+		    for (int i = 1; i < fila; i++) {
+		    	for (int j = 0; j < 13; j++) {
+					cell1 = sheet.getCell(j, i);
+					System.out.println(sheet.getCell(j, i).getContents());
+
+				}
+			}
+			workbook.close();
+    
 		} catch (BiffException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

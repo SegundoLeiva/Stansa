@@ -57,6 +57,15 @@ public class ConsumoDetalle implements Serializable {
 	private Date fechaCreacion;	
 	private String idUsuarioModificacion;	
 	private Date fechaModificacion;
+	private Double lifecount;
+	private Double monolifecount;
+	private Double colorlifecount;
+	private Double blacktoner;
+	private Double cyantoner;
+	private Double magentatoner;
+	private Double yellowtoner;
+	private Double totaltoner;
+	
 	public IdConsumo getId() {
 		return id;
 	}
@@ -111,7 +120,53 @@ public class ConsumoDetalle implements Serializable {
 	public void setNumeroIp(String numeroIp) {
 		this.numeroIp = numeroIp;
 	}
-	
-	
+	public Double getLifecount() {
+		return lifecount;
+	}
+	public void setLifecount(Double lifecount) {
+		this.lifecount = lifecount;
+	}
+	public Double getMonolifecount() {
+		return monolifecount;
+	}
+	public void setMonolifecount(Double monolifecount) {
+		this.monolifecount = monolifecount;
+	}
+	public Double getColorlifecount() {
+		return colorlifecount;
+	}
+	public void setColorlifecount(Double colorlifecount) {
+		this.colorlifecount = colorlifecount;
+	}
+	public Double getBlacktoner() {
+		return blacktoner;
+	}
+	public void setBlacktoner(Double blacktoner) {
+		this.blacktoner = blacktoner;
+	}
+	public Double getCyantoner() {
+		return cyantoner;
+	}
+	public void setCyantoner(Double cyantoner) {
+		this.cyantoner = cyantoner;
+	}
+	public Double getMagentatoner() {
+		return magentatoner;
+	}
+	public void setMagentatoner(Double magentatoner) {
+		this.magentatoner = magentatoner;
+	}
+	public Double getYellowtoner() {
+		return yellowtoner;
+	}
+	public void setYellowtoner(Double yellowtoner) {
+		this.yellowtoner = yellowtoner;
+	}
+	public Double getTotaltoner() {
+		return totaltoner;
+	}
+	public void setTotaltoner(Double totaltoner) {
+		this.totaltoner = totaltoner;
+	}
 
 }

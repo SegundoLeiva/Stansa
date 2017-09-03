@@ -17,7 +17,7 @@ public class PuestoPorUsuarioDAOImpl implements PuestoPorUsuarioDAO {
     private HibernateTemplate hibernateTemplateSeguridad;
 
     public PuestoPorUsuario getPuestoPorUsuario(String usuario){
-        String hql = "from PuestoPorUsuario p where p.idUsuario ='"+usuario+"'";
+        String hql = "from PuestoPorUsuario p where p.idUsuario ='"+usuario+"' and p.activo='S'";
         List resultado = hibernateTemplateSeguridad.find(hql);
         if(resultado != null && resultado.size() > 0){
             return (PuestoPorUsuario)resultado.get(0);

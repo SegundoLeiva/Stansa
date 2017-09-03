@@ -13,8 +13,8 @@ public class EnvioCorreoJobService {
 	
 	private static final String templateEmail = "templateEmail/email_html.vm";
 
-	// @Scheduled(cron="*/5 * * * * ?")//5 segundos
-	@Scheduled(cron="0 0/13 11 * * *")// 11.13am
+	@Scheduled(cron="*/30 * * * * ?")//5 segundos
+//	@Scheduled(cron="0 0/28 11 * * *")// 11.13am
 	public void demoServiceMethod() {
 		String body = mailSender.getBodyVelocity(templateEmail);
 		mailSender.sendMail("sleivac90@gmail.com", "sleivac90@gmail.com",

@@ -19,6 +19,8 @@ public class Usuario {
     private String sociedadUsuario;
     private String divisionUsuario;
     private boolean esUsuarioLogistica;
+    private boolean esEmpleado;
+    private Long idSedeCliente; 
     
     @Transient
     private String  idAmbienteUnidadMinera;
@@ -128,6 +130,22 @@ public class Usuario {
 
 	public void setIdUnidadMineraPorDefecto(String idUnidadMineraPorDefecto) {
 		this.idUnidadMineraPorDefecto = idUnidadMineraPorDefecto;
+	}
+
+	public boolean isEsEmpleado() {
+		return esEmpleado;
+	}
+
+	public void setEsEmpleado(boolean esEmpleado) {
+		this.esEmpleado = esEmpleado;
+	}
+
+	public Long getIdSedeCliente() {
+		return idSedeCliente;
+	}
+
+	public void setIdSedeCliente(Long idSedeCliente) {
+		this.idSedeCliente = idSedeCliente;
 	}
     
     

@@ -1,9 +1,11 @@
 package com.stansa.util;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class FechasUtil {
     
@@ -29,6 +31,25 @@ public class FechasUtil {
 		return formatter.format(fecha);
 
     }
+    
+    public static String convertFechaFormato(String fecha,String format) {
+
+    	SimpleDateFormat curFormater = new SimpleDateFormat(format); 
+    	DateFormat sourceFormat = new SimpleDateFormat("dd/MM/yyyy");
+    	Date date;
+		try {
+			date = sourceFormat.parse(fecha);
+			return curFormater.format(date);
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+    	
+    	 
+         return "";
+
+    }
+    
     
     public static String getPrimerDiaDelMesActual(){
     	Calendar cal = Calendar.getInstance();

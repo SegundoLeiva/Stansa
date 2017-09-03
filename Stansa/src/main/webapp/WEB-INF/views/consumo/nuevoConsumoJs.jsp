@@ -36,7 +36,7 @@ $(document).ready(function() {
 	
 	dataSedeCliente = [{id:" ",text:"Seleccionar", tipoContrato:""}];
 	<c:forEach var="item" items="${listaSedeCliente}">
-		var obj = {id:"${item.idSedeCliente}",text:"${item.cliente.nombre} - ${item.zona.descripcion}",
+		var obj = {id:"${item.idSedeCliente}",text:"${item.cliente.nombre} - ${item.lugarOficina}",
 				tipoContrato:"${item.tipoContrato.tipoContrato}"}
 		dataSedeCliente.push(obj);
 	</c:forEach>
