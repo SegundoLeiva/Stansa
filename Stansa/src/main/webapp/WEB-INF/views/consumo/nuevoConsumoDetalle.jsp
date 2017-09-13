@@ -27,14 +27,14 @@
 						</div>			
 					</div>
 					<div class="row-fluid">
-						<div class="span6">
-							<div class="control-group">
-								<label class="control-label" for="numeroIp">Nro Ip</label>
-								<div class="controls">
-									<input type="text" id="numeroIp" class="inputInsumo" required data-msg-required="El campo Ip es obligatorio.">
-								</div>
-							</div>
-						</div>
+<!-- 						<div class="span6"> -->
+<!-- 							<div class="control-group"> -->
+<!-- 								<label class="control-label" for="numeroIp">Nro Ip</label> -->
+<!-- 								<div class="controls"> -->
+<!-- 									<input type="text" id="numeroIp" class="inputInsumo" required data-msg-required="El campo Ip es obligatorio."> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
 						<div class="span6">
 							<div class="control-group">
 								<label class="control-label" for="numeroSerie">Nro Serie</label>

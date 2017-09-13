@@ -11,14 +11,16 @@ import org.springframework.util.StringUtils;
 
 import com.stansa.dao.MercaderiaDAO;
 import com.stansa.dao.MercaderiaDetalleDAO;
+import com.stansa.dao.SerieProductoDAO;
 import com.stansa.domain.Almacen;
 import com.stansa.domain.Mercaderia;
 import com.stansa.domain.MercaderiaConsulta;
 import com.stansa.domain.MercaderiaConsultaModel;
 import com.stansa.domain.MercaderiaDetalle;
+import com.stansa.domain.MercaderiaDetalle.IdMercaderia;
 import com.stansa.domain.MercaderiaParametrosEntrada;
 import com.stansa.domain.Producto;
-import com.stansa.domain.MercaderiaDetalle.IdMercaderia;
+import com.stansa.domain.SerieProducto;
 import com.stansa.util.Constantes;
 import com.stansa.util.FechasUtil;
 
@@ -29,7 +31,9 @@ public class MercaderiaServiceImpl implements MercaderiaService {
     public MercaderiaDAO mercaderiaDAO;
 	@Autowired
     public MercaderiaDetalleDAO mercaderiaDetalleDAO;
-
+	@Autowired
+    public SerieProductoDAO serieProductoDAO;
+	
 	public void actualizarMercaderia(Mercaderia Mercaderia) {
 		mercaderiaDAO.actualizarMercaderia(Mercaderia);
 	}
@@ -75,6 +79,19 @@ public class MercaderiaServiceImpl implements MercaderiaService {
 					Producto producto = new Producto();
 					producto.setIdProducto(new Long(idProducto));					
 					mercaderiaDetalle.setProducto(producto);
+					
+					String numeroSerieArray[] = jsonObj.getString("numeroSerie").split(";");
+					for (int j = 0; j < numeroSerieArray.length; j++) {
+						String data = numeroSerieArray[j];
+						if(!StringUtils.isEmpty(data)){
+							SerieProducto serieProducto = new SerieProducto();
+							serieProducto.setIdMercaderia(idMercaderia);
+							serieProducto.setProducto(producto);
+							serieProducto.setNumeroSerie(data);
+							serieProducto.setEstado("P");//PENDIENTE
+							serieProductoDAO.insertarSerieProducto(serieProducto);
+						}
+					}
 					mercaderiaDetalle.setNumeroSerie(jsonObj.getString("numeroSerie"));
 					mercaderiaDetalle.setCantidad(jsonObj.getDouble("cantidad"));
 					mercaderiaDetalle.setIdUsuarioCreacion(idUsuarioCreacion);
@@ -95,6 +112,17 @@ public class MercaderiaServiceImpl implements MercaderiaService {
 					producto.setIdProducto(new Long(idProducto));					
 					mercaderiaDetalle.setProducto(producto);	
 					mercaderiaDetalle.setNumeroSerie(jsonObj.getString("numeroSerie"));
+					
+					String numeroSerieArray[] = jsonObj.getString("numeroSerie").split(";");
+					for (int j = 0; j < numeroSerieArray.length; j++) {
+						String data = numeroSerieArray[j];
+						if(!StringUtils.isEmpty(data)){
+							SerieProducto serieProducto = serieProductoDAO.obtenerSerieProducto(idMercaderia, data);
+							serieProducto.setProducto(producto);
+							serieProducto.setNumeroSerie(data);
+							serieProductoDAO.modificarSerieProducto(serieProducto);
+						}
+					}
 					mercaderiaDetalle.setIdUsuarioModificacion(mercaderiaParametrosEntrada.getNombreUsuario());
 					mercaderiaDetalle.setFechaModificacion(new Date());		
 					

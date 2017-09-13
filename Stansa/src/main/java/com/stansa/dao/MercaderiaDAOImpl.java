@@ -56,6 +56,10 @@ public class MercaderiaDAOImpl implements MercaderiaDAO {
 	public void eliminarMercaderia(String idMercaderia) {
 		// TODO Auto-generated method stub
     	
+		//EliminarSerieProducto
+    	hibernateTemplate.bulkUpdate("DELETE SerieProducto where "
+    			+ "idMercaderia=? ", idMercaderia);
+    	
     	//EliminarDetalle
     	hibernateTemplate.bulkUpdate("DELETE MercaderiaDetalle where "
     			+ "idMercaderia=? ", idMercaderia);

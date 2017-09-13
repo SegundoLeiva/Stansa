@@ -75,7 +75,7 @@
 							<th class="center" width="10%">Código</th>
 							<th class="center" width="50%">Descripcion</th>
 							<th class="center">Nro Serie</th>
-							<th class="center">Nro Ip</th>
+<!-- 							<th class="center">Nro Ip</th> -->
 						</tr>
 					</thead>
 					<tbody>

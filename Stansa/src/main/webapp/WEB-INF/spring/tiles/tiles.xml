@@ -97,6 +97,18 @@
 		<put-attribute name="contenido"
 			value="/WEB-INF/views/reporteTonerCliente/verReporteTonerCliente.jsp" />		
 	</definition>
+	
+	<!-- ################################ DISPOSITIVOS ############################## -->
+	<definition name="verDispositivos" extends="templateSistema">
+		<put-attribute name="js2" value="/WEB-INF/views/dispositivo/verDispositivosJs.jsp" />
+		<put-attribute name="contenido"
+			value="/WEB-INF/views/dispositivo/verDispositivos.jsp" />		
+	</definition>
+	<definition name="nuevoDispositivo" extends="templateSistema">
+		<put-attribute name="js2" value="/WEB-INF/views/dispositivo/nuevoDispositivoJs.jsp" />
+		<put-attribute name="contenido"
+			value="/WEB-INF/views/dispositivo/nuevoDispositivoJ.jsp" />		
+	</definition>
 
 
 </tiles-definitions>

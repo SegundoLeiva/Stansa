@@ -65,14 +65,14 @@ $(document).ready(function() {
 $("#btnAgregarDetalle").click(function(){
 	 if(validarCamposRequeridos("formModalDetalleForm") && validarProducto("")){			 	
 		 	var data = [$("#idProducto").val(),$("#idProducto option:selected").text(),
-		 	            $("#numeroSerie").val(),$("#numeroIp").val()];
+		 	            $("#numeroSerie").val(),""];
 		 	agregarDetalle(data);
 		 	var fila = consumoJSONArray.length-1;
 		 	consumoJSONArray[fila].idProducto=$("#idProducto").val();
 			consumoJSONArray[fila].cantidad="1";
 			consumoJSONArray[fila].descripcionProducto=$("#idProducto option:selected").text();
 			consumoJSONArray[fila].numeroSerie=$("#numeroSerie").val();
-			consumoJSONArray[fila].numeroIp=$("#numeroIp").val();
+			consumoJSONArray[fila].numeroIp="";
 		 	$("#divModalDetalleForm").modal("hide");
 	 }
 });
@@ -90,7 +90,7 @@ $("#btnEditarDetalle").click(function(){
 		 setearCampo("idProducto",$("#idProducto").val());
 		 setearCampo("descripcionProducto",$("#idProducto option:selected").text());
 		 setearCampo("numeroSerie",$("#numeroSerie").val());
-		 setearCampo("numeroIp",$("#numeroIp").val());
+		 setearCampo("numeroIp","");
 		 cambiarIndicadorModificado();	 
 		 $("#divModalDetalleForm").modal("hide");
 	 }
@@ -106,7 +106,7 @@ $("#abrirDetalleEditar").click(function(){
 
 		$("#idProducto").val(consumoJSONArray[index].idProducto).trigger('change');
 		$("#numeroSerie").val(consumoJSONArray[index].numeroSerie);
-		$("#numeroIp").val(consumoJSONArray[index].numeroIp);
+		$("#numeroIp").val("");
 		filaIndexDetalle = index;
 
 		$("#divModalDetalleForm").modal("show");
