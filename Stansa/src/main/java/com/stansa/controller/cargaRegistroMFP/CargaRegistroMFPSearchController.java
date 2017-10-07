@@ -20,11 +20,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.stansa.BaseController.BaseSearchController;
+import com.stansa.alfresco.CmisDownloadDocument;
 
 @Controller
 @RequestMapping(value = "/cargaRegistroMFP")
 public class CargaRegistroMFPSearchController extends BaseSearchController{
 
+	private CmisDownloadDocument ccde;
+	
 	@Override
 	public Object getFormBusqueda() {
 		// TODO Auto-generated method stub
@@ -57,7 +60,10 @@ public class CargaRegistroMFPSearchController extends BaseSearchController{
 			@RequestParam("file1") MultipartFile file) throws IllegalStateException, IOException{
 		
 		try {
-			Workbook workbook = Workbook.getWorkbook(file.getInputStream());
+			
+			ccde = new CmisDownloadDocument();
+	    	
+			Workbook workbook = Workbook.getWorkbook(ccde.visualizarArchivo("ed581d8f-a9f4-401d-a93d-442651253555"));
 			Sheet sheet = workbook.getSheet(0);
 			Cell cell1;
 			int fila = sheet.getRows();

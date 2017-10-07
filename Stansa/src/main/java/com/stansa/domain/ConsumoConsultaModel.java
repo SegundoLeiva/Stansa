@@ -12,14 +12,9 @@ public class ConsumoConsultaModel {
 	private String fechaInicio;
 	private String fechaFin;
 	
-	public ConsumoConsultaModel(Usuario usuarioSession){
+	public ConsumoConsultaModel(){
 		this.fechaInicio=FechasUtil.getPrimerDiaDelMesActual();
 		this.fechaFin=FechasUtil.getUltimoDiaDelMesActual();
-		this.idUsuarioCreacion=usuarioSession.getIdUsuario();
-	}
-	
-	public ConsumoConsultaModel(){
-		
 	}
 
 	public String getIdConsumo() {

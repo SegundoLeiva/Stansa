@@ -25,5 +25,11 @@ public class ConsumoDetalleServiceImpl implements ConsumoDetalleService {
 		return consumoDetalleDAO.obtenerConsumoDetalleReporte(model);
 	}
 
+	public List<ConsumoDetalle> obtenerConsumoDetallePorCliente(
+			ReporteTonerClienteConsultaModel model) {
+		// TODO Auto-generated method stub
+		return consumoDetalleDAO.obtenerConsumoDetallePorCliente(model);
+	}
+
 }
 

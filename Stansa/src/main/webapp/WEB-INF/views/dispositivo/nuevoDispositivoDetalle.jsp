@@ -12,37 +12,38 @@
 							<div class="control-group">
 								<label class="control-label" for="idProducto">Producto</label>
 								<div class="controls selectInsumo">
-									<select id="idProducto" required
+									<select id="idProducto" required disabled="disabled"
 										data-msg-required="El campo Producto es obligatorio."></select>
 								</div>
 							</div>
 						</div>
 						<div class="span6">
 							<div class="control-group">
-								<label class="control-label" for="stock">Stock</label>
-								<div class="controls">
-									<input type="text" id="stock" readonly="readonly" class="stock inputInsumo">
-								</div>
-							</div>					
-						</div>			
-					</div>
-					<div class="row-fluid">
-<!-- 						<div class="span6"> -->
-<!-- 							<div class="control-group"> -->
-<!-- 								<label class="control-label" for="numeroIp">Nro Ip</label> -->
-<!-- 								<div class="controls"> -->
-<!-- 									<input type="text" id="numeroIp" class="inputInsumo" required data-msg-required="El campo Ip es obligatorio."> -->
-<!-- 								</div> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
-						<div class="span6">
-							<div class="control-group">
 								<label class="control-label" for="numeroSerie">Nro Serie</label>
 								<div class="controls">
-									<input type="text" id="numeroSerie" class="inputInsumo">
+									<input type="text" id="numeroSerie" class="inputInsumo" disabled="disabled">
 								</div>
 							</div>
-						</div>		
+						</div>				
+					</div>
+					<div class="row-fluid">
+						<div class="span6">
+							<div class="control-group">
+								<label class="control-label" for="aliasProducto">Nombre</label>
+								<div class="controls">
+									<input type="text" id="aliasProducto" class="inputInsumo">
+								</div>
+							</div>
+						</div>	
+						<div class="span6">
+							<div class="control-group">
+								<label class="control-label" for="numeroIp">Nro Ip</label>
+								<div class="controls">
+									<input type="text" id="numeroIp" class="inputInsumo" required data-msg-required="El campo Ip es obligatorio.">
+								</div>
+							</div>
+						</div>
+							
 					</div>
 	</div>
 	<div class="modal-footer">

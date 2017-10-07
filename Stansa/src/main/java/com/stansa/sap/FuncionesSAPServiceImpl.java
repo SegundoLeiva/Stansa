@@ -9,7 +9,7 @@ public class FuncionesSAPServiceImpl implements FuncionesSAPService {
 
     public String getProveedorDescripcion(String ruc, String sociedad) {
         
-        String descripcion = "PROBANDOOO";
+        String descripcion = "RICOH";
     
         return descripcion;
     }

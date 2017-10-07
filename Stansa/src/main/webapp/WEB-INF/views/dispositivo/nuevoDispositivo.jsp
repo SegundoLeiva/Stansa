@@ -9,6 +9,7 @@
 		<div class="row-fluid">
 			<div class="page-content">
 				<div class="span12">
+
 					<div class="row-fluid">
 						<div class="span4">
 							<div class="control-group">
@@ -28,7 +29,6 @@
 												readonly="readonly"/>
 								</div>
 							</div>
-							
 
 						</div>
 						<div class="span4">
@@ -50,59 +50,36 @@
 							</div>		
 						</div>
 					</div>
-					<div class="row-fluid">
-						<div class="span4">
-							<div class="control-group">
-								<label class="control-label" for="estadoEntregaPedido">Estado Pedido</label>
-								<div class="controls">
-									<select name="estadoEntregaPedido" id="estadoEntregaPedido">
-										<option value="">Seleccionar</option>
-										<option value="P" ${beanConsulta.estadoEntregaPedido=='P' ? 'selected' : ' '}>PENDIENTE</option>
-										<option value="A" ${beanConsulta.estadoEntregaPedido=='A' ? 'selected' : ' '}>ENTREGADO</option>
-									</select>		
-								</div>
-							</div>	
-						</div>	
-						
-						<div class="span8">
-							<div class="control-group">
-								<label class="control-label" for="observacion">Observación</label>
-								<div class="controls">
-									<textarea rows="2" class="span12"></textarea>
-								</div>
-							</div>
-						</div>	
-							
-					</div>
-					<div class="row-fluid">
-						<div class="span4">
-							<div class="control-group">
-								<label class="control-label" for="">Cargar Archivo</label>
-								<div class="controls">
-									<input type="file" id="cargaRegistro" name="cargaRegistro">
-								</div>
-							</div>
-						</div>	
-							
-					</div>
 				</div>
 			</div>
 
 		</div>
 
 	</form>
+	<div class="header table-header">
 
+			<a href="#" title="Editar Detalle" class="btn btn-small btn-primary" id="abrirDetalleEditar"
+				style="border: 1px solid #c4e7ff;"><i class="icon-edit"></i>Editar</a>
+	</div>
 	<table id="tablaConsumoDetalle"
 					class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
+							<th class="center" width="5%">
+								<label><input type="checkbox" class="checkSelectedAll">
+								<span class="lbl"></span></label>
+							</th>
 							<th class="center" width="10%">Código</th>
-							<th class="center" width="50%">Modelo</th>
+							<th class="center" width="25%">Modelo</th>
+							<th class="center" width="25%">Nombre</th>
 							<th class="center">Nro Serie</th>
-<!-- 							<th class="center">Estado</th> -->
+							<th class="center">Nro Ip</th>
 						</tr>
 					</thead>
 					<tbody>
 					</tbody>
-	</table>
+				</table>
 </div>
+
+
+<%@ include file="/WEB-INF/views/dispositivo/nuevoDispositivoDetalle.jsp"%>

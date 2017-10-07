@@ -1,4 +1,4 @@
-package com.stansa.controller.registrarConsumo;
+package com.stansa.controller.dispositivo;
 
 import java.io.IOException;
 import java.util.List;
@@ -21,11 +21,10 @@ import com.stansa.service.ConsumoDetalleService;
 import com.stansa.service.ConsumoService;
 import com.stansa.service.ProductoService;
 import com.stansa.service.SedeClienteService;
-import com.stansa.service.TipoContratoService;
 
 @Controller
-@RequestMapping(value = "/registrarConsumo")
-public class RegistrarConsumoMantenimientoController extends BaseMantenimientoController{
+@RequestMapping(value = "/dispositivo")
+public class DispositivoMantenimientoController extends BaseMantenimientoController{
 	
 	@Autowired
     private ConsumoService consumoService;
@@ -34,14 +33,12 @@ public class RegistrarConsumoMantenimientoController extends BaseMantenimientoCo
 	@Autowired
     private SedeClienteService sedeClienteService;
 	@Autowired
-    private ProductoService productoService;
-	@Autowired
-    private TipoContratoService tipoContratoService;
+    private ProductoService productoService;		
 	
 	@Override
 	public String getPaginaMantenimiento() {
 		// TODO Auto-generated method stub
-		return "nuevoConsumo";
+		return "nuevoDispositivo";
 	}
 	
 	@Override
@@ -49,8 +46,6 @@ public class RegistrarConsumoMantenimientoController extends BaseMantenimientoCo
 		// TODO Auto-generated method stub
 		model.addAttribute("listaSedeCliente", this.sedeClienteService.listaSedeCliente());
 		model.addAttribute("listaProducto", this.productoService.listaProducto());
-		model.addAttribute("idUsuarioCreacion", this.usuario.getIdUsuario());
-		model.addAttribute("listaTipoContrato", this.tipoContratoService.listaTipoContrato());
         return model;
 	}
 	
@@ -75,8 +70,7 @@ public class RegistrarConsumoMantenimientoController extends BaseMantenimientoCo
 		
 		model.addAttribute("listaSedeCliente", this.sedeClienteService.listaSedeCliente());
 		model.addAttribute("listaProducto", this.productoService.listaProducto());
-		model.addAttribute("idUsuarioCreacion", this.usuario.getIdUsuario());
-		model.addAttribute("listaTipoContrato", this.tipoContratoService.listaTipoContrato());
+		
 		return model;
 	}
 

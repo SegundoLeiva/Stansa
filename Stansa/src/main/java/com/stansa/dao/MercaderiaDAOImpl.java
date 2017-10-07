@@ -41,8 +41,8 @@ public class MercaderiaDAOImpl implements MercaderiaDAO {
     	try {
     		MercaderiaConsulta mercaderiaConsulta = new MercaderiaConsulta();
         	BeanUtils.copyProperties(mercaderiaConsulta, mercaderiaConsultaModel);
-            String[] paramNames = {"idMercaderia","rucProveedor","guiaRemision","fechaInicio","fechaFin","idUsuarioCreacion"};        
-            String[] values = {mercaderiaConsulta.getIdMercaderia(),mercaderiaConsulta.getRucProveedor(),
+            String[] paramNames = {"idMercaderia","guiaRemision","fechaInicio","fechaFin","idUsuarioCreacion"};        
+            String[] values = {mercaderiaConsulta.getIdMercaderia(),
             		mercaderiaConsulta.getGuiaRemision(),mercaderiaConsultaModel.getFechaInicio(),mercaderiaConsultaModel.getFechaFin(), mercaderiaConsulta.getIdUsuarioCreacion()};
             listaMercaderiaConsulta = (List<MercaderiaConsulta>) hibernateTemplate.findByNamedQueryAndNamedParam("listaMercaderia",paramNames,values);
 		} catch (Exception e) {

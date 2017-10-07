@@ -13,10 +13,7 @@
 								<label class="control-label" for="idUnidadMinera">Cliente-Sede</label>
 								<div class="controls">
 									<select name="idSedeCliente" id="idSedeCliente">
-										<option value="">Seleccionar</option>
-										<c:forEach var="item" items="${listaSedeCliente}">
-											<option value="${item.idSedeCliente}" ${item.idSedeCliente == beanConsulta.idSedeCliente ? 'selected' : ' '}>${item.cliente.nombre}</option>
-										</c:forEach>
+
 									</select>
 								</div>
 							</div>
@@ -46,6 +43,14 @@
 									<span class="input-icon input-icon-right"> 
 										<input type="text" name="fechaFin" id="fechaFin" class="span12 date-picker" readonly="readonly" value="${beanConsulta.fechaFin}"> <i class="icon-calendar"></i>
 									</span>
+								</div>
+							</div>
+						</div>
+						<div class="span4">
+							<div class="control-group">
+								<label class="control-label" for=idUsuarioCreacion>Usuario</label>
+								<div class="controls">									
+									<input type="text" class="form-control" name="idUsuarioCreacion" id="idUsuarioCreacion" value="${beanConsulta.idUsuarioCreacion}" placeholder="Usuario...">
 								</div>
 							</div>
 						</div>
@@ -85,6 +90,9 @@
 									</a>
 									<a class="green" href="consultar.htm?id=<c:out value="${jbean.idConsumo}" />"
 										title="Consultar"> <i class="icon-align-justify bigger-130"></i>
+									</a>
+									<a class="red" href="#" onclick="eliminarSearch('${jbean.idConsumo}')"> <i
+										class="icon-trash bigger-130"></i>
 									</a>
 								</td>
 							</tr>

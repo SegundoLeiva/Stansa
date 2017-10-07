@@ -47,7 +47,8 @@ $(document).ready(function() {
 	$("#idProducto").select2({
 		  data: dataInsumo
 	});
-
+	$("#rucProveedor").val("10456539800");
+	getProveedorDescripcion();
 
 } );
 
@@ -234,5 +235,48 @@ $("#btnAgregarSerieDetalle").click(function(){
 	mercaderiaJSONArray[filaSerie].numeroSerie = numeroSerie;
 	$("#divSerie").modal("hide");
 });
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
+<!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
+<script type="text/javascript">
+$(function () { 
+//     var myChart = Highcharts.chart('container', {
+//         chart: {
+//             type: 'bar'
+//         },
+//         title: {
+//             text: 'Fruit Consumption'
+//         },
+//         xAxis: {
+//             categories: ['Apples', 'Bananas', 'Oranges']
+//         },
+//         yAxis: {
+//             title: {
+//                 text: 'Fruit eaten'
+//             }
+//         },
+//         series: [{
+//             name: 'Jane',
+//             data: [1, 0, 4]
+//         }, {
+//             name: 'John',
+//             data: [5, 7, 3]
+//         }]
+//     });
+ });
 
 </script>

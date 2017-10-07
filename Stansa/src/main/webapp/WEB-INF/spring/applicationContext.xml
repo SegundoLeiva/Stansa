@@ -41,6 +41,7 @@
 			<mvc:mapping  path="/cargaRegistroMFP/*"/>
 			<mvc:mapping  path="/reporteTonerCliente/*"/>
 			<mvc:mapping  path="/dispositivo/*"/>
+			<mvc:mapping  path="/ubicacionDispositivo/*"/>
 			<mvc:mapping  path="/home/*"/> 
 			<mvc:exclude-mapping path="/login.htm" />
 			<bean class="com.stansa.session.ApplicationSessionInterceptor" />

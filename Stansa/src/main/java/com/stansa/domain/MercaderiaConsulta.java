@@ -11,8 +11,6 @@ public class MercaderiaConsulta {
     private String guiaRemision;
     private String fechaCreacion;
 	private String idUsuarioCreacion;
-	private String rucProveedor;
-	private String descripcionProveedor;
 	public String getIdMercaderia() {
 		return idMercaderia;
 	}
@@ -24,18 +22,6 @@ public class MercaderiaConsulta {
 	}
 	public void setGuiaRemision(String guiaRemision) {
 		this.guiaRemision = guiaRemision;
-	}
-	public String getRucProveedor() {
-		return rucProveedor;
-	}
-	public void setRucProveedor(String rucProveedor) {
-		this.rucProveedor = rucProveedor;
-	}
-	public String getDescripcionProveedor() {
-		return descripcionProveedor;
-	}
-	public void setDescripcionProveedor(String descripcionProveedor) {
-		this.descripcionProveedor = descripcionProveedor;
 	}
 	public String getFechaCreacion() {
 		return fechaCreacion;

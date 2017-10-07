@@ -29,7 +29,7 @@ public class IngresarMercaderiaSearchController extends BaseSearchController{
 	@Override
 	public Object getFormBusqueda() {
 		// TODO Auto-generated method stub
-		MercaderiaConsultaModel mercaderiaConsultaModel = new MercaderiaConsultaModel(this.usuario);
+		MercaderiaConsultaModel mercaderiaConsultaModel = new MercaderiaConsultaModel();
 		return mercaderiaConsultaModel;
 	}
 	

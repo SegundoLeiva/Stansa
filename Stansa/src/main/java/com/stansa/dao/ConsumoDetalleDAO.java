@@ -13,4 +13,5 @@ public interface ConsumoDetalleDAO {
 	public List<ConsumoDetalle> obtenerConsumoDetallePorIdConsumo(String id);
 	public ConsumoDetalle obtenerConsumoDetalle(String idSolPed,String idSolPedDetalle);
 	public List<ConsumoDetalle> obtenerConsumoDetalleReporte(ReporteTonerClienteConsultaModel model);
+	public List<ConsumoDetalle> obtenerConsumoDetallePorCliente(ReporteTonerClienteConsultaModel model);
 }

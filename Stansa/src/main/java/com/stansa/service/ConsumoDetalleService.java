@@ -9,4 +9,5 @@ public interface ConsumoDetalleService {
 
 	public List<ConsumoDetalle> obtenerConsumoDetallePorIdConsumo(String id);
 	public List<ConsumoDetalle> obtenerConsumoDetalleReporte(ReporteTonerClienteConsultaModel model);
+	public List<ConsumoDetalle> obtenerConsumoDetallePorCliente(ReporteTonerClienteConsultaModel model);
 }

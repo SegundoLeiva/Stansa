@@ -6,11 +6,11 @@ var consumoJSONArray  = arrayJsonDetalle;
 var index = 1;
 var dataSedeCliente=[];
 var dataInsumo=[];
-var estadoPedido = "<label><input type='checkbox' class='checkEstadoPedido'><span class='lbl'></span></label>";
+// var estadoPedido = "<label><input type='checkbox' class='checkEstadoPedido'><span class='lbl'></span></label>";
 
 $(document).ready(function() {
 	tabla="#tablaConsumoDetalle";
-	claseColumna=["idProducto","descripcionProducto","numeroSerie","numeroIp"];
+	claseColumna=["idProducto","descripcionProducto","numeroSerie"];
 	inicializarStyleTablaDetalle();
 	
 	if('<c:out value="${accion}"/>'!=""){	
@@ -18,19 +18,17 @@ $(document).ready(function() {
 		var i=0;
 		<c:forEach var="jbean" items="${listaConsumoDetalle}">		
 		var data = ["${jbean.producto.idProducto}",
-	             	"${jbean.producto.descripcion}","${jbean.numeroSerie}","${jbean.numeroIp}",estadoPedido];
+	             	"${jbean.producto.descripcion}","${jbean.numeroSerie}"];
 		agregarDetalle(data); 
 		consumoJSONArray[i].idDetalle="${jbean.id.idConsumoDetalle}";
 		consumoJSONArray[i].idProducto="${jbean.producto.idProducto}";
 		consumoJSONArray[i].descripcionProducto="${jbean.producto.descripcion}";
 		consumoJSONArray[i].numeroSerie="${jbean.numeroSerie}";
-		consumoJSONArray[i].numeroIp="${jbean.numeroIp}";
 		consumoJSONArray[i].indicadorBD=INDICADOR_CREADO;
 			i++;
 		</c:forEach>
 		index = "${listaConsumoDetalle.get(listaConsumoDetalle.size()-1).id.idConsumoDetalle+1}";
-
-// 		bloquearCamposConsultar();		
+		$(".header").hide();
 	}
 	
 	dataSedeCliente = [{id:" ",text:"Seleccionar", tipoContrato:""}];
@@ -58,61 +56,16 @@ $(document).ready(function() {
  	if(idSedeCliente.trim()!=""){
  		$("#idSedeCliente").val(idSedeCliente).trigger('change');
  	}
-
 } );
-
-$("#btnAgregarDetalle").click(function(){
-	 if(validarCamposRequeridos("formModalDetalleForm") && validarProducto("")){			 	
-		 	var data = [$("#idProducto").val(),$("#idProducto option:selected").text(),
-		 	            $("#numeroSerie").val(),$("#numeroIp").val()];
-		 	agregarDetalle(data);
-		 	var fila = consumoJSONArray.length-1;
-		 	consumoJSONArray[fila].idProducto=$("#idProducto").val();
-			consumoJSONArray[fila].cantidad="1";
-			consumoJSONArray[fila].descripcionProducto=$("#idProducto option:selected").text();
-			consumoJSONArray[fila].numeroSerie=$("#numeroSerie").val();
-			consumoJSONArray[fila].numeroIp=$("#numeroIp").val();
-		 	$("#divModalDetalleForm").modal("hide");
-	 }
-});
 
 function agregarDetalle(data){
 	var mercaderiaJSON = {
-		    idDetalle:'',idProducto:'',cantidad:'',descripcionProducto:'',numeroSerie:'',numeroIp:'',
+		    idDetalle:'',idProducto:'',cantidad:'',descripcionProducto:'',numeroSerie:'',
 		    indicadorBD: INDICADOR_NUEVO};
 	consumoJSONArray.push(mercaderiaJSON);
 	agregarFilaSinCheckBox(data);
 }
 
-$("#btnEditarDetalle").click(function(){
-	 if(validarCamposRequeridos("formModalDetalleForm") && validarProducto("editar")){	
-		 setearCampo("idProducto",$("#idProducto").val());
-		 setearCampo("descripcionProducto",$("#idProducto option:selected").text());
-		 setearCampo("numeroSerie",$("#numeroSerie").val());
-		 setearCampo("numeroIp",$("#numeroIp").val());
-		 cambiarIndicadorModificado();	 
-		 $("#divModalDetalleForm").modal("hide");
-	 }
-	
-});
-
-$("#abrirDetalleEditar").click(function(){
-	$("#btnAgregarDetalle").hide();
-	$("#btnEditarDetalle").show();
-	var checkDetalle = $('#tablaMercaderiaDetalle> tbody .checkDetalle:checked');
-	if(checkDetalle.length==1){
-		var index = checkDetalle.closest("tr").index();
-
-		$("#idProducto").val(consumoJSONArray[index].idProducto).trigger('change');
-		$("#numeroSerie").val(consumoJSONArray[index].numeroSerie);
-		$("#numeroIp").val(consumoJSONArray[index].numeroIp);
-		filaIndexDetalle = index;
-
-		$("#divModalDetalleForm").modal("show");
-	}else{
-		alertify.error("Seleccione un Item.");
-	}	
-});
 
 function validarProducto(flag){
 	var rpta=true;

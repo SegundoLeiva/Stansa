@@ -50,7 +50,7 @@
 	
 	<!-- ################################ INGRESO DE MERCADERIAS ############################## -->
 	<definition name="verMercaderias" extends="templateSistema">
-		<put-attribute name="js2" value="/WEB-INF/views/mercaderia/nuevaMercaderiaJs.jsp" />
+		<put-attribute name="js2" value="/WEB-INF/views/mercaderia/verMercaderiasJs.jsp" />
 		<put-attribute name="contenido"
 			value="/WEB-INF/views/mercaderia/verMercaderias.jsp" />		
 	</definition>
@@ -107,9 +107,15 @@
 	<definition name="nuevoDispositivo" extends="templateSistema">
 		<put-attribute name="js2" value="/WEB-INF/views/dispositivo/nuevoDispositivoJs.jsp" />
 		<put-attribute name="contenido"
-			value="/WEB-INF/views/dispositivo/nuevoDispositivoJ.jsp" />		
+			value="/WEB-INF/views/dispositivo/nuevoDispositivo.jsp" />		
 	</definition>
-
+	
+	<!-- ################################ UBICACION DE DISPOSITIVOS ############################## -->
+	<definition name="verUbicacionDispositivo" extends="templateSistema">
+		<put-attribute name="js2" value="/WEB-INF/views/ubicacionDispositivo/verUbicacionDispositivoJs.jsp" />
+		<put-attribute name="contenido"
+			value="/WEB-INF/views/ubicacionDispositivo/verUbicacionDispositivo.jsp" />
+	</definition>
 
 </tiles-definitions>
 

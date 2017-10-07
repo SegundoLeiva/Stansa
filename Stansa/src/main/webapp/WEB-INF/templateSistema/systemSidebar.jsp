@@ -1,8 +1,8 @@
 <%@ include file="/WEB-INF/views/include.jsp"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 
-<a href="#" class="brand"> <small> <i class="ace-icon icon-beaker"></i>
-						Stansa
+<a href="#" class="brand"> <small> <i class="ace-icon icon-print"></i>
+						Sistema de Control de Insumos
 				</small>
 				</a>
 

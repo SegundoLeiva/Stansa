@@ -1,4 +1,4 @@
-package com.stansa.controller.registrarConsumo;
+package com.stansa.controller.dispositivo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,16 +12,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.stansa.BaseController.BaseSearchController;
-import com.stansa.domain.ConsumoConsulta;
 import com.stansa.domain.ConsumoConsultaModel;
+import com.stansa.domain.SedeCliente;
 import com.stansa.service.ConsumoDetalleService;
 import com.stansa.service.ConsumoService;
 import com.stansa.service.SedeClienteService;
 import com.stansa.service.TipoContratoService;
 
 @Controller
-@RequestMapping(value = "/registrarConsumo")
-public class RegistrarConsumoSearchController extends BaseSearchController{
+@RequestMapping(value = "/dispositivo")
+public class DispositivoSearchController extends BaseSearchController{
 	@Autowired
     private ConsumoService consumoService;
 	@Autowired
@@ -34,22 +34,31 @@ public class RegistrarConsumoSearchController extends BaseSearchController{
 	@Override
 	public Object getFormBusqueda() {
 		// TODO Auto-generated method stub
-		ConsumoConsultaModel consumoConsultaModel = new ConsumoConsultaModel();
-		return consumoConsultaModel;
+		ConsumoConsultaModel form = new ConsumoConsultaModel();
+		if(!this.usuario.isEsEmpleado()){
+			form.setIdSedeCliente(String.valueOf(this.usuario.getIdSedeCliente()));
+		}
+		return form;
 	}
 	
 	@Override
 	public String getPaginaSearch() {
 		// TODO Auto-generated method stub
-		return "verConsumos";
+		return "verDispositivos";
 	}
 	
 	@Override
 	public List listarConsulta(Model model, HttpSession sesion,HttpServletRequest req){
 
-   		model.addAttribute("listaSedeCliente", this.sedeClienteService.listaSedeCliente());
+		List<SedeCliente> listSedeCliente = new ArrayList<SedeCliente>();
+		if(this.usuario.isEsEmpleado()){
+			model.addAttribute("listaSedeCliente", this.sedeClienteService.listaSedeCliente());
+		}else{
+			listSedeCliente.add(this.sedeClienteService.obtieneSedeClientePorId(String.valueOf(this.usuario.getIdSedeCliente())));
+			model.addAttribute("listaSedeCliente", listSedeCliente);
+		}
    		model.addAttribute("listaTipoContrato", this.tipoContratoService.listaTipoContrato());
-
+   		this.mostrarBotonNuevo=false;
         return consumoService.listaConsumoConsulta((ConsumoConsultaModel)this.formBusqueda);         
 	}
 	

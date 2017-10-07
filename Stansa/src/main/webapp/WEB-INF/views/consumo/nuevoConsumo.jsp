@@ -20,32 +20,41 @@
 									</select>
 								</div>
 							</div>
-						</div>
-						<div class="span4">
 							<div class="control-group">
-								<label class="control-label" for="tipoContrato">Tipo Contrato</label>
-								<div class="controls">									
-									<input type="text" class="form-control" id="tipoContrato" 
-												readonly="readonly"/>
-								</div>
-							</div>
-
-						</div>
-						<div class="span4">
-							<div class="control-group">
-								<label class="control-label" for="fecha">Fecha</label>
+								<label class="control-label" for="fecha">Fecha Asignación</label>
 								<div class="controls">
 									<c:choose>
 										<c:when test="${empty accion}">
-											<input type="text" class="form-control" name="fechaConsumo" id="fechaConsumo" 
+											<input type="text" class="form-control date-picker" name="fechaConsumo" id="fechaConsumo" 
 												readonly="readonly" value="<fmt:formatDate value="${now}" pattern="dd/MM/yyyy" />">
 										</c:when>
 										<c:otherwise>
-											<input type="text" class="form-control" name="fechaConsumo" id="fechaConsumo" 
+											<input type="text" class="form-control date-picker" name="fechaConsumo" id="fechaConsumo" 
 											readonly="readonly" value="<fmt:formatDate value="${consumo.fechaConsumo}" pattern="dd/MM/yyyy" />">
 										</c:otherwise>
 									</c:choose>
 									
+								</div>
+							</div>	
+							
+						</div>
+
+						<div class="span4">							
+							<div class="control-group">
+								<label class="control-label" for="idUsuarioCreacion">Usuario</label>
+								<div class="controls">		
+									<input type="text" class="form-control" name="idUsuarioCreacion" id="idUsuarioCreacion" value="${idUsuarioCreacion}" readonly="readonly">
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="idTipoContrato">Tipo Contrato</label>
+								<div class="controls">
+									<select name="idTipoContrato" id="idTipoContrato" required="required" data-msg-required="El campo Tipo Contrato es obligatorio.">
+										<option value="">Seleccionar</option>
+										<c:forEach var="item" items="${listaTipoContrato}">
+											<option value="${item.idTipoContrato}">${item.tipoContrato}</option>
+										</c:forEach>
+									</select>		
 								</div>
 							</div>		
 						</div>
@@ -73,9 +82,8 @@
 								<span class="lbl"></span></label>
 							</th>
 							<th class="center" width="10%">Código</th>
-							<th class="center" width="50%">Descripcion</th>
+							<th class="center" width="50%">Modelo</th>
 							<th class="center">Nro Serie</th>
-<!-- 							<th class="center">Nro Ip</th> -->
 						</tr>
 					</thead>
 					<tbody>

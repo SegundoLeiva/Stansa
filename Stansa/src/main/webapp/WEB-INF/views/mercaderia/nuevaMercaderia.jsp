@@ -17,17 +17,7 @@
 								<div class="controls">
 									<input type="text" class="form-control" name="guiaRemision" id="guiaRemision" value="${mercaderia.guiaRemision}" required="required" data-msg-required="El campo Guía Remisión es obligatorio.">
 								</div>
-							</div>						
-						</div>
-						<div class="span6">
-							<div class="control-group">
-								<label class="control-label">Almacén</label>
-								<div class="controls">
-									<input type="text" class="form-control" value="${listaAlmacen[0].almacen}" readonly="readonly">
-									<input type="hidden" name="idAlmacen" id="idAlmacen" value="${listaAlmacen[0].idAlmacen}">
-								</div>
-							</div>
-
+							</div>	
 							<div class="control-group">
 								<label class="control-label" for="fecha">Fecha de Despacho</label>
 								<div class="controls">
@@ -43,7 +33,23 @@
 									</c:choose>
 									
 								</div>
-							</div>											
+							</div>						
+						</div>
+						<div class="span6">
+							<div class="control-group">
+								<label class="control-label">Almacén</label>
+								<div class="controls">
+									<input type="text" class="form-control" value="${listaAlmacen[0].almacen}" readonly="readonly">
+									<input type="hidden" name="idAlmacen" id="idAlmacen" value="${listaAlmacen[0].idAlmacen}">
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="idUsuarioCreacion">Usuario</label>
+								<div class="controls">		
+									<input type="text" class="form-control" name="idUsuarioCreacion" id="idUsuarioCreacion" value="${idUsuarioCreacion}" readonly="readonly">
+								</div>
+							</div>	
+																	
 						</div>
 					</fieldset>
 					</div>
@@ -54,7 +60,7 @@
 							<div class="control-group">
 								<label class="control-label" for="rucProveedor">Ruc Proveedor</label>
 								<div class="controls">		
-									<input type="text" class="form-control numeroEntero" name="rucProveedor" id="rucProveedor" value="${mercaderia.rucProveedor}" required="required" maxlength="11" data-msg-required="El campo Ruc Proveedor es obligatorio." onblur="getProveedorDescripcion();">
+									<input type="text" class="form-control numeroEntero" name="rucProveedor" id="rucProveedor" value="${mercaderia.rucProveedor}" required="required" maxlength="11" data-msg-required="El campo Ruc Proveedor es obligatorio." readonly="readonly">
 								</div>
 							</div>	
 							<div class="control-group">
@@ -89,7 +95,7 @@
 								<span class="lbl"></span></label>
 							</th>
 							<th class="center" width="10%">Código</th>
-							<th class="center" width="40%">Descripcion</th>
+							<th class="center" width="40%">Modelo</th>
 							<th class="center">Cantidad</th>
 							<th class="center" width="10%">Nro Serie</th>
 						</tr>

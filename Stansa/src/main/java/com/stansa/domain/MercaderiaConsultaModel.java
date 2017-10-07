@@ -9,19 +9,12 @@ public class MercaderiaConsultaModel {
     private String guiaRemision;
     private String fechaCreacion;
 	private String idUsuarioCreacion;
-	private String rucProveedor;
-	private String descripcionProveedor;
 	private String fechaInicio;
 	private String fechaFin;
 	
-	public MercaderiaConsultaModel(Usuario usuarioSession){
+	public MercaderiaConsultaModel(){
 		this.fechaInicio=FechasUtil.getPrimerDiaDelMesActual();
 		this.fechaFin=FechasUtil.getUltimoDiaDelMesActual();
-		this.idUsuarioCreacion=usuarioSession.getIdUsuario();
-	}
-	
-	public MercaderiaConsultaModel(){
-		
 	}
 	
 	public String getIdMercaderia() {
@@ -35,18 +28,6 @@ public class MercaderiaConsultaModel {
 	}
 	public void setGuiaRemision(String guiaRemision) {
 		this.guiaRemision = guiaRemision;
-	}
-	public String getRucProveedor() {
-		return rucProveedor;
-	}
-	public void setRucProveedor(String rucProveedor) {
-		this.rucProveedor = rucProveedor;
-	}
-	public String getDescripcionProveedor() {
-		return descripcionProveedor;
-	}
-	public void setDescripcionProveedor(String descripcionProveedor) {
-		this.descripcionProveedor = descripcionProveedor;
 	}
 	public String getFechaCreacion() {
 		return fechaCreacion;

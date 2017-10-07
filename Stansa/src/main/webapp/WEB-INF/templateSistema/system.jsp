@@ -4,13 +4,13 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>::Hochschild Mining:: Sistema Insumos Químicos</title>
+		<title>::RICOH:: Sistema de Control de Insumos</title>
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="Expires" content="0" /> 
 		<meta http-equiv="Pragma" content="no-cache" />
-		<link rel="shortcut icon" href="<c:url value="/assets/images/logo.jpg"/>" />
+<%-- 		<link rel="shortcut icon" href="<c:url value="/assets/images/logo.jpg"/>" /> --%>
 
 		<!-- ##########################  HEAD ######################  -->
 		<tiles:insertAttribute name="css"/>

@@ -78,7 +78,7 @@ public class LoginController {
                                 session.setAttribute("puestoPorUsuario", puestoPorUsuario);                                
                                 session.setAttribute("session_usuario", usuario);
             					
-                                return new ModelAndView("redirect:/home/bienvenida.htm");
+                                return new ModelAndView("redirect:/ingresarMercaderia/listar.htm");
                             }else{
                                 mensaje = "Ud. no tiene acceso al sistema."; 
                             }

@@ -44,6 +44,7 @@ public class IngresarMercaderiaMantenimientoController extends BaseMantenimiento
 		// TODO Auto-generated method stub
 		model.addAttribute("listaProducto", this.productoService.listaProducto());
 		model.addAttribute("listaAlmacen", this.almacenService.listaAlmacen());
+		model.addAttribute("idUsuarioCreacion", this.usuario.getIdUsuario());
 		return model;
 	}
 	
@@ -66,7 +67,7 @@ public class IngresarMercaderiaMantenimientoController extends BaseMantenimiento
 		
 		model.addAttribute("listaProducto", this.productoService.listaProducto());
 		model.addAttribute("listaAlmacen", this.almacenService.listaAlmacen());
-		
+		model.addAttribute("idUsuarioCreacion", this.usuario.getIdUsuario());
 		return model;
 	}
 

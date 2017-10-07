@@ -52,7 +52,8 @@ public class ConsumoDetalle implements Serializable {
 	@JoinColumn(name = "idProducto")
 	private Producto producto;
 	private String numeroSerie;	
-	private String numeroIp;		
+	private String numeroIp;	
+	private String aliasProducto;
 	private String idUsuarioCreacion;	
 	private Date fechaCreacion;	
 	private String idUsuarioModificacion;	
@@ -167,6 +168,12 @@ public class ConsumoDetalle implements Serializable {
 	}
 	public void setTotaltoner(Double totaltoner) {
 		this.totaltoner = totaltoner;
+	}
+	public String getAliasProducto() {
+		return aliasProducto;
+	}
+	public void setAliasProducto(String aliasProducto) {
+		this.aliasProducto = aliasProducto;
 	}
 
 }

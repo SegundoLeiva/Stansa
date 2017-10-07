@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>::Hochschild Mining:: Sistema Insumos Químicos</title>
+<title>::RICOH:: Sistema de Control de Insumos</title>
 
 <meta name="description" content="User login page" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="<c:url value="/assets/css/ace.min.css"/>" />
 <link rel="stylesheet" href="<c:url value="/assets/css/ace-responsive.min.css"/>" />
 <link rel="stylesheet" href="<c:url value="/assets/css/ace-skins.min.css"/>" />
-<link rel="shortcut icon" href="<c:url value="/assets/images/logo.jpg"/>" />
+<%-- <link rel="shortcut icon" href="<c:url value="/assets/images/logo.jpg"/>" /> --%>
 <!--inline styles related to this page-->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
@@ -71,7 +71,7 @@
 											<div class="widget-main center">
 												<h4 class="header blue">
 <!-- 													<i class="ace-icon icon-beaker green"></i> -->
-													 Sistema Stansa
+													 Sistema de Control de Insumos
 												</h4>
 
 												<div class="space-6"></div>

@@ -13,10 +13,6 @@
 								<label class="control-label" for="idUnidadMinera">Cliente-Sede</label>
 								<div class="controls">
 									<select name="idSedeCliente" id="idSedeCliente">
-<!-- 										<option value="">Seleccionar</option> -->
-<%-- 										<c:forEach var="item" items="${listaSedeCliente}"> --%>
-<%-- 											<option value="${item.idSedeCliente}" ${item.idSedeCliente == beanConsulta.idSedeCliente ? 'selected' : ' '}>${item.cliente.nombre}</option> --%>
-<%-- 										</c:forEach> --%>
 									</select>
 								</div>
 							</div>
@@ -30,12 +26,13 @@
 						</div>
 						<div class="span4">
 							<div class="control-group">
-								<label class="control-label" for="estadoEntregaPedido">Estado Pedido</label>
+								<label class="control-label" for="idTipoContrato">Tipo Contrato</label>
 								<div class="controls">
-									<select name="estadoEntregaPedido" id="estadoEntregaPedido">
+									<select name="idTipoContrato" id="idTipoContrato">
 										<option value="">Seleccionar</option>
-										<option value="P" ${beanConsulta.estadoEntregaPedido=='P' ? 'selected' : ' '}>PENDIENTE</option>
-										<option value="A" ${beanConsulta.estadoEntregaPedido=='A' ? 'selected' : ' '}>ENTREGADO</option>
+										<c:forEach var="item" items="${listaTipoContrato}">
+											<option value="${item.idTipoContrato}" ${item.idTipoContrato == beanConsulta.idTipoContrato ? 'selected' : ' '}>${item.tipoContrato}</option>
+										</c:forEach>
 									</select>		
 								</div>
 							</div>	
@@ -62,7 +59,7 @@
 							<th class="center" width="5%">Nro</th>
 							<th class="center">Código</th>
 							<th class="center">Cliente</th>
-							<th class="center">Estado Pedido</th>
+							<th class="center">Tipo de Contrato</th>
 							<th class="center">Fecha Creación</th>
 							<th class="center">Usuario Creación</th>
 							<th class="center" width="10%">Opciones</th>
@@ -75,12 +72,15 @@
 								<td class="center">${contador.count}</td>
 								<td class="center">${jbean.idConsumo}</td>
 								<td class="center">${jbean.sedeCliente}</td>
-								<td class="center">${jbean.estadoEntregaPedido}</td>
+								<td class="center">${jbean.tipoContrato}</td>
 								<td class="center">${jbean.fechaCreacion}</td>
 								<td class="center">${jbean.idUsuarioCreacion}</td>
 								<td class="center">
 									<a class="blue" href="modificar.htm?id=<c:out value="${jbean.idConsumo}" />"
-											title="Consultar"> <i class="icon-align-justify bigger-130"></i>
+											title="Modificar"> <i class="icon-edit bigger-130"></i>
+									</a>
+									<a class="green" href="consultar.htm?id=<c:out value="${jbean.idConsumo}" />"
+										title="Consultar"> <i class="icon-align-justify bigger-130"></i>
 									</a>
 								</td>
 							</tr>

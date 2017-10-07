@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.stansa.domain.ConsumoDetalle;
 import com.stansa.domain.ReporteTonerClienteConsultaModel;
+import com.stansa.domain.SedeCliente;
 
 @Repository(value="ConsumoDetalleDAO")
 public class ConsumoDetalleDAOImpl implements ConsumoDetalleDAO {
@@ -60,6 +61,22 @@ public class ConsumoDetalleDAOImpl implements ConsumoDetalleDAO {
 		
 		if(!StringUtils.isEmpty(model.getIdSedeCliente())){
 			_sql = "WHERE consumo.sedeCliente.idSedeCliente='"+model.getIdSedeCliente()+"'";
+		}
+		
+		String sql = "from ConsumoDetalle "+_sql;
+		List<ConsumoDetalle> resultado= (List<ConsumoDetalle>) hibernateTemplate.find(sql);
+	      
+	    return resultado;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<ConsumoDetalle> obtenerConsumoDetallePorCliente(ReporteTonerClienteConsultaModel model){
+		
+		String _sql = "";
+		
+		if(!StringUtils.isEmpty(model.getIdSedeCliente())){
+			SedeCliente sedeCliente = hibernateTemplate.get(SedeCliente.class, new Long(model.getIdSedeCliente()));
+			_sql = "WHERE consumo.sedeCliente.cliente.idCliente='"+sedeCliente.getCliente().getIdCliente()+"'";
 		}
 		
 		String sql = "from ConsumoDetalle "+_sql;

@@ -1,4 +1,4 @@
-package com.stansa.controller.reporteTonerCliente;
+package com.stansa.controller.ubicacionDispositivo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +18,8 @@ import com.stansa.service.ConsumoDetalleService;
 import com.stansa.service.SedeClienteService;
 
 @Controller
-@RequestMapping(value = "/reporteTonerCliente")
-public class ReporteTonerClienteSearchController extends BaseSearchController{
+@RequestMapping(value = "/ubicacionDispositivo")
+public class UbicacionDispositivoSearchController extends BaseSearchController{
 
 	@Autowired
     private ConsumoDetalleService consumoDetalleService;
@@ -39,12 +39,13 @@ public class ReporteTonerClienteSearchController extends BaseSearchController{
 	@Override
 	public String getPaginaSearch() {
 		// TODO Auto-generated method stub
-		return "verReporteTonerCliente";
+		return "verUbicacionDispositivo";
 	}
 	
 	@Override
 	public List listarConsulta(Model model, HttpSession sesion,HttpServletRequest req){
 		this.mostrarBotonNuevo=false;
+		this.mostrarBotonBuscar=false;
 		List<SedeCliente> listSedeCliente = new ArrayList<SedeCliente>();
 		if(this.usuario.isEsEmpleado()){
 			model.addAttribute("listaSedeCliente", this.sedeClienteService.listaSedeCliente());
@@ -53,7 +54,7 @@ public class ReporteTonerClienteSearchController extends BaseSearchController{
 			model.addAttribute("listaSedeCliente", listSedeCliente);
 		}
 		model.addAttribute("esEmpleado", this.usuario.isEsEmpleado());
-        return consumoDetalleService.obtenerConsumoDetalleReporte((ReporteTonerClienteConsultaModel)this.formBusqueda);         
+        return consumoDetalleService.obtenerConsumoDetallePorCliente((ReporteTonerClienteConsultaModel)this.formBusqueda);         
        
 	}
 

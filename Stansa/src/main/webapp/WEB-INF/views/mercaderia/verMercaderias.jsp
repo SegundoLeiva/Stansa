@@ -28,9 +28,9 @@
 						</div>
 						<div class="span4">
 							<div class="control-group">
-								<label class="control-label" for="proveedor">Ruc Proveedor</label>
+								<label class="control-label" for=idUsuarioCreacion>Usuario</label>
 								<div class="controls">									
-									<input type="text" class="form-control numeroEntero" name="rucProveedor" id="rucProveedor" maxlength="11" value="${beanConsulta.rucProveedor}" placeholder="Proveedor...">
+									<input type="text" class="form-control" name="idUsuarioCreacion" id="idUsuarioCreacion" value="${beanConsulta.idUsuarioCreacion}" placeholder="Usuario...">
 								</div>
 							</div>
 							<div class="control-group">
@@ -56,7 +56,6 @@
 				<tr>
 						<th class="center" width="5%">Nro</th>
 						<th class="center">Código</th>
-						<th class="center">Proveedor</th>
 						<th class="center">Guía Remisión</th>
 						<th class="center hidden-480">Fecha Creación</th>
 						<th class="center hidden-480">Usuario Creación</th>
@@ -69,7 +68,6 @@
 							<tr>
 								<td class="center">${contador.count}</td>
 								<td class="center">${jbean.idMercaderia}</td>
-								<td class="center">${jbean.rucProveedor} - ${jbean.descripcionProveedor}</td>
 								<td class="center">${jbean.guiaRemision}</td>
 								<td class="center hidden-480">${jbean.fechaCreacion}</td>
 								<td class="center hidden-480">${jbean.idUsuarioCreacion}</td>
@@ -82,7 +80,7 @@
 										class="icon-edit bigger-130"></i></a>
 									<a class="red" href="#" onclick="eliminarSearch('${jbean.idMercaderia}')"> <i
 										class="icon-trash bigger-130"></i>
-								</a>
+									</a>
 								</td>
 
 							</tr>
